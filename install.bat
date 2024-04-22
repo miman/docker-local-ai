@@ -14,6 +14,8 @@ docker volume create local-ai-folder
 
 REM Copy the Python code to the CrewAI Docker volume
 copy test-files\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data
+mkdir \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
+copy test-files\output\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
 
 REM Deploy the CrewAI Docker container
 docker-compose build

@@ -1,53 +1,18 @@
-import os
+from crewai import Task
+from team import execute
 
-from dotenv import load_dotenv
-from langchain_community.llms.ollama import Ollama
-
-from crewai import Agent, Crew, Process, Task
-
-load_dotenv()
-
-ollama_model = Ollama(model="gemma:2b", base_url="http://host.docker.internal:11434")
-
-
-# Define your agents with roles and goals
-researcher = Agent(
-   role='Researcher',
-   goal='Discover new insights',
-   backstory="You're a world class researcher working on a major data science company",
-   verbose=True,
-   allow_delegation=False,
-   llm=ollama_model,
-)
-writer = Agent(
-   role='Writer',
-   goal='Create engaging content',
-   backstory="You're a famous technical writer, specialized on writing data related content",
-   verbose=True,
-   allow_delegation=False,
-   llm=ollama_model
+folderPath = 'output'
+# Define the tasks to perform
+task_investigate = Task(
+  description="""Find the weather and tempature in Gothenburg in Sweden tomorrow and compare this to the the weather the last 10 years for the same date""",
+  expected_output="the weather and tempature in Gothenburg tomorrow and for each of the last 10 years in a bulletlist",
 )
 
-# Create tasks for your agents
-task1 = Task(
-   description='Investigate the best way to run python code in a dockere container',
-   expected_output="analysis of this as a report in bullet points",
-   agent=researcher
-)
-task2 = Task(
-   description='Document this in an easy to understand fashion using markdown format', 
-   expected_output="A description in markdown format",
-   agent=writer
+task_documentation = Task(
+  description="""Create a documentation describing the weather tomorrow, how it has been historically and how they compare in a markdown format""",
+  expected_output="Tomorrows weather, how it has been historically and how they compare in markdown format",
+  output_file=folderPath + '/output.md'  # The output will be saved here
 )
 
-# Instantiate your crew with a sequential process - TWO AGENTS!
-crew = Crew(
-   agents=[researcher, writer],
-   tasks=[task1, task2],
-   llm=ollama_model,
-   verbose=2,
-   process=Process.sequential
-)
-
-# Get your crew to work!
-result = crew.kickoff()
+# Execute  the tasks
+execute([task_investigate, task_documentation])
