@@ -32,3 +32,8 @@ This contains the actual code files that will be copied to the Docker volume tha
 
 They are copied to the Docker volume that is used to run the CrewAI code by the installation script
 
+
+This folder can be found here (if using explorer or Powrshell):
+
+`\\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data`
+

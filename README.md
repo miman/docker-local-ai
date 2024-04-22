@@ -2,14 +2,7 @@
 
 Project used to create Docker containers to locally run Ollama and CrewAi.
 
-A volume will be created where the code can be dynamically changed between each run without amny need to re-deploy the docker container.
-
-To test that everything works, copy the files under code to this folder before starting the docker container
-
-This folder can be found here:
-
-`\\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data`
-
+A volume will be created where the code can be dynamically changed between each run without any need to re-deploy the docker container.
 
 ## Overview
 
