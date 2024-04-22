@@ -15,7 +15,7 @@ This folder can be found here:
 
 This is an overview of what will be deployed:
 
-![overview-image](docs\images\overview.svg)
+![overview-image](docs/images/overview.svg)
 
 ## Workflow
 
@@ -44,4 +44,4 @@ Docker must have been installed first
 
 ## Manual Installation
 
-Manual installation instructions can be found [here](docs\local-ai-install.md)
+Manual installation instructions can be found [here](docs/local-ai-install.md)
