@@ -10,18 +10,36 @@ This folder can be found here:
 
 `\\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data`
 
-Installation instructions can be found [here](docs\local-ai-install.md)
 
 ## Overview
 
-Deployment overview:
+This is an overview of what will be deployed:
 
 ![overview-image](docs\images\overview.svg)
+
+## Workflow
+
+### Installation
+
+Install both docker containers and code volume by running the **install.bat** script
+
+### Change & run code
+After everyhting has been installed you can open the code folder (Docker volume) in 2 ways:
+* Run **scripts/code_folder.bat** to open an explorer to the code folder
+* Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
+
+Edit the code in the main file and re-run the container by running the run.bat script, the output can be viewed in the Docker desktop by clicking on the container & Logs
+
+#### Python dependencies
+
+If you need any other python dependencies in your code add this to the **./requirements.txt** file before running **docker-compose build**.
+
+If you already deployed everything you need to delete the container & image & run build & start again
 
 ## Pre-reqs
 
 Docker must have been installed first
 
-## Python dependencies
+## Manual Installation
 
-If you need any other python dependnecies in your code add this to the **./requirements.txt** file before running **docker-compose build**
+Manual installation instructions can be found [here](docs\local-ai-install.md)
