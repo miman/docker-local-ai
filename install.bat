@@ -18,5 +18,5 @@ copy test-files\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-fold
 REM Deploy the CrewAI Docker container
 docker-compose build
 
-docker-compose up
+docker-compose up 
 

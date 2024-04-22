@@ -3,8 +3,8 @@
 
 services:
   file-test:
-    image: volume-test # Your image name
-    container_name: vl
+    image: local-crew-ai # Your image name
+    container_name: local-crew-ai
     networks:
       - local-ai-network
     volumes:
