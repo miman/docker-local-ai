@@ -57,10 +57,4 @@ Do this to avoid writing
 
 * **ollama run llama2**
 
-The file should contain this content:
-
-```
-echo off
-
-docker exec -it ollama ollama %1 %2 %3
-```
+You should copy the file **./scripts/ollama.bat** to a folder in your path
