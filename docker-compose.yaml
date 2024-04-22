@@ -1,0 +1,21 @@
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+  file-test:
+    image: volume-test # Your image name
+    container_name: vl
+    networks:
+      - my-host-network
+    volumes:
+      - ai-client-code:/app # Mount the current directory as /app volume (optional for development)
+    build:
+      context: .
+
+volumes:
+  ai-client-code:
+    external: true
+
+networks:
+  my-host-network:
+    external: true # Optional: Creates the network if it doesn't exist
