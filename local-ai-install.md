@@ -28,10 +28,27 @@ run in shell:
 
 Run in shell:
 
+If you did the optional step in the end of this file:
+
 ```ollama run gemma:2b```
 
+otherwise:
 
-# Create a shortcut bat file.
+```docker exec -it ollama ollama run gemma:2b```
+
+
+# Install Crewai docker container
+
+## Create Docker volume
+docker volume create ai-client-code
+
+## Deployment
+
+To deploy the docker container run the following commands
+* docker-compose build
+* docker-compose up
+
+# Optionally - Create a shortcut bat file.
 
 Do this to avoid writing 
 * **docker exec -it ollama ollama run llama2** 
@@ -47,81 +64,3 @@ echo off
 
 docker exec -it ollama ollama %1 %2 %3
 ```
-
-# Install Crewai docker container
-
-## Create Docker volume
-docker volume create ai-client-code
-
-## Create Dockerfile
-Create a **Dockerfile** with the following content:
-
-```
-# syntax=docker/dockerfile:1
-
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
-
-ARG PYTHON_VERSION=3.11.9
-FROM python:${PYTHON_VERSION}-slim as base
-
-# Prevents Python from writing pyc files.
-ENV PYTHONDONTWRITEBYTECODE=1
-
-# Keeps Python from buffering stdout and stderr to avoid situations where
-# the application crashes without emitting any logs due to buffering.
-ENV PYTHONUNBUFFERED=1
-
-WORKDIR /app
-
-# Download dependencies as a separate step to take advantage of Docker's caching.
-# Leverage a cache mount to /root/.cache/pip to speed up subsequent builds.
-# Leverage a bind mount to requirements.txt to avoid having to copy them into
-# into this layer.
-RUN --mount=type=cache,target=/root/.cache/pip \
-    --mount=type=bind,source=requirements.txt,target=requirements.txt \
-    python -m pip install -r requirements.txt
-
-# Copy the source code into the container.
-COPY . .
-
-# Run the application.
-CMD python main.py
-```
-
-## Create docker-compose.yml file
-Create a **docker-compose.yml** with the following content:
-
-```
-services:
-  file-test:
-    image: volume-test # Your image name
-    container_name: vl
-    networks:
-      - my-host-network
-    volumes:
-      - ai-client-code:/app # Mount the current directory as /app volume (optional for development)
-    build:
-      context: .
-
-volumes:
-  ai-client-code:
-    external: true
-
-networks:
-  my-host-network:
-    external: true # Optional: Creates the network if it doesn't exist
-```
-
-## Deployment
-
-To deploy the docker container run the following commands
-* docker-compose build
-* docker-compose up
-
-# Network
-
-## Create docker network
-
-docker network create my-host-network
-
