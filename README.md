@@ -28,7 +28,9 @@ After everyhting has been installed you can open the code folder (Docker volume)
 * Run **scripts/code_folder.bat** to open an explorer to the code folder
 * Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
 
-Edit the code in the main file and re-run the container by running the run.bat script, the output can be viewed in the Docker desktop by clicking on the container & Logs
+Edit the code in the main file and re-run the container by running the run.bat script.
+
+The output can be viewed in the Docker desktop by clicking on the container & Logs or by running the **docker logs local-crew-ai** command
 
 #### Python dependencies
 
