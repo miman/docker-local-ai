@@ -8,7 +8,7 @@ To test that everything works, copy the files under test-files to this folder be
 This folder can be found here:
 **\\wsl$\docker-desktop-data\data\docker\volumes\ai-client-code\_data**
 
-Installation instructions can be found [here](local-ai-install)
+Installation instructions can be found [here](local-ai-install.md)
 
 ## Pre-reqs
 Docker must have been installed first
