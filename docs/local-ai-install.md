@@ -8,7 +8,7 @@ These are the steps needed:
 - Deploy Ollama container
 - Pull gemma:2b model
 - Create Docker volume for CrewAI
-- Copy file to this folder from test-files
+- Copy file to this folder from code
 - rename the copied file .env.template to .env
 - Deploy CrewAI Docker container
 

@@ -4,7 +4,7 @@ Project used to create Docker containers to locally run Ollama and CrewAi.
 
 A volume will be created where the code can be dynamically changed between each run without amny need to re-deploy the docker container.
 
-To test that everything works, copy the files under test-files to this folder before starting the docker container
+To test that everything works, copy the files under code to this folder before starting the docker container
 
 This folder can be found here:
 
@@ -41,6 +41,10 @@ If you already deployed everything you need to delete the container & image & ru
 ## Pre-reqs
 
 Docker must have been installed first
+
+## Project files
+
+Information about the file structure of the project can be found [here](docs/files.md)
 
 ## Manual Installation
 
