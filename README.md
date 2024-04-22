@@ -29,7 +29,13 @@ The output can be viewed in the Docker desktop by clicking on the container & Lo
 
 If you need any other python dependencies in your code add this to the **./requirements.txt** file before running **docker-compose build**.
 
-If you already deployed everything you need to delete the container & image & run build & start again
+If you already deployed everything you need to delete the container & image & run the wollowing commands again:
+
+```
+docker-compose build
+
+docker-compose up
+```
 
 ## Pre-reqs
 
