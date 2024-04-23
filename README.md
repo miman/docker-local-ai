@@ -14,7 +14,18 @@ This is an overview of what will be deployed:
 
 ### Installation
 
-Install both docker containers and code volume by running the **install.bat** script
+Installs 3 docker containers and code volume by running the **install.bat** script
+
+These are the docker containers that are installed
+
+* Ollama - local AI model engine
+* Ollama WebUI - Web UI for local Ollama instance
+* CrewAI Python environment
+
+### Local WebUI for Ollama
+
+You can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
+
 
 ### Change & run code
 After everyhting has been installed you can open the code folder (Docker volume) in 2 ways:

@@ -19,13 +19,21 @@ The following files are used to create the docker containers, volumes and networ
 * Dockerfile
 * .env
 
-### Pyhton dependencies
+### Python dependencies
 
-The **requirements.txt** file is used to install the dependencies for the CrewAI docker container at build time
+| File | Description |
+| ---- | ---- |
+| requirements.txt | The **requirements.txt** file is used to install the dependencies for the CrewAI docker container at build time |
 
-### Installation 
 
-The ***install.bat*** file is used to install the docker containers and copy the files to the Docker volume used by the CrewAI container
+
+### Scripts
+
+| File | Description |
+| ---- | ---- |
+| install.bat | The ***install.bat*** file is used to install the docker containers and copy the files to the Docker volume used by the CrewAI container |
+| open_vs_code.bat | The ***open_vs_code.bat*** file is used to open a VS Code editor in the code volume folder used by the CrewAI Docker container |
+| code_folder.bat | The ***code_folder.bat*** file is used to open a Windows Explorer window in the code volume folder used by the CrewAI Docker container |
 
 ## Code folder
 This contains the actual code files that will be copied to the Docker volume that is used to run the CrewAI code
