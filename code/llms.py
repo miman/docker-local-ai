@@ -16,6 +16,7 @@ ollamaApiBaseUrl: str | None = os.getenv('OLLAMA_API_BASE')
 if ollamaApiBaseUrl is None:
     ollamaApiBaseUrl = "http://host.docker.internal:11434"
 
+# General LLMs
 _ollama_llm = None
 def ollama_llm():
     global _ollama_llm  # Mark as global
@@ -37,13 +38,6 @@ def openhermes():
         _openhermes = Ollama(model='openhermes', base_url=ollamaApiBaseUrl)
     return _openhermes
 
-_codellama = None
-def codellama():
-    global _codellama
-    if (_codellama is None):
-        _codellama = Ollama(model='codellama', base_url=ollamaApiBaseUrl)
-    return _codellama
-
 _gemma = None
 def gemma():
     global _gemma
@@ -58,6 +52,14 @@ def llama3():
         _llama3 = Ollama(model='llama3', base_url=ollamaApiBaseUrl)
     return _llama3
 
+# Code LLMs
+_codellama = None
+def codellama():
+    global _codellama
+    if (_codellama is None):
+        _codellama = Ollama(model='codellama', base_url=ollamaApiBaseUrl)
+    return _codellama
+
 _codeqwen = None
 def codeqwen():
     global _codeqwen
@@ -71,6 +73,22 @@ def dolphin_llama_llm():
     if (_dolphin_llama_llm == None):
         _dolphin_llama_llm = Ollama(model="dolphin-llama3", base_url=ollamaApiBaseUrl)
     return _dolphin_llama_llm
+
+# Image recognition LLM
+_llava_llm = None
+def llava_llm():
+    global _llava_llm  # Mark as global
+    if (_llava_llm == None):
+        _llava_llm = Ollama(model="llava", base_url=ollamaApiBaseUrl)
+    return _llava_llm
+
+# Medical LLM
+_meditron_llm = None
+def meditron_llm():
+    global _meditron_llm  # Mark as global
+    if (_meditron_llm == None):
+        _meditron_llm = Ollama(model="meditron", base_url=ollamaApiBaseUrl)
+    return _meditron_llm
 
 
 # ===================================
