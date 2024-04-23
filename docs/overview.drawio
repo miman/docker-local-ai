@@ -1,1 +1,94 @@
-<mxfile host="1hkctn0qo3849vbl4kt6lih59llhd0pi8qra2iu3i37u85c4vipd" modified="2024-04-22T15:35:41.238Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.88.1 Chrome/120.0.6099.291 Electron/28.2.8 Safari/537.36" etag="E0FYS4C5RKtbvZwIoW_J" version="12.2.4" pages="1"><diagram id="SALRXWrra1WZczLhJ-SY" name="Page-1">7VhLc9owEP41HJPxCwPHBNK0M2SSmRzaHIUtGxVhMUIE3F/fFV75HXASMiTTkkOk1Upafd/uauWeO17ubiVZze9ESHnPscJdz530HMf2HR/+aUmaSQYeCmLJQlQqBI/sD0WhhdINC+m6oqiE4IqtqsJAJAkNVEVGpBTbqlokeHXXFYlpQ/AYEN6U/mShmqPU9kfFwHfK4jluPXQG2cCMBItYik2C+/UcN9r/suElMWvhQddzEoptSeTe9NyxFEJlreVuTLnG1sCWzfv2wmhut6SJ6jTB2KFSc3YaAhTYFVLNRSwSwm8K6fVcLTkM2tCEbWT6CzrWZd90n3TXdCa7Si8t9x6oZEuqqEThWkmxoGPBhdyb4noT/QcjzWPhSddiIwM03EFHITKmqIV06SOVpiEUt1TA7jIFBUk5Uey5yj5BJ4pzvQJIaCCW7biiLc+Eb3DRiQgW+qRXPcfnYN71TEIr1q17zsmSNIjYuxENEentnCn6uCL7024h7KpERIzzEnIhocMoaMPUD4Z0Fh3C9JlKRXcH8TKjFroPhrlt3HpbChqjMy/Fi2+9H+JBA+Iv4cqczCi/ztOEUUlEou2JRKJKs6z9r2sAeM0A8DsGABLoIS+d4wFXehAM7CpURBStwYQ6m/mGnQgefhTBdoXegu0XCD4Ll7bbJNN5HZkX9mdi03tNRhxLur368QUzoueeMSP6DYgfUoiJBGRjKNEacELxsdLNIOUMcJXucVBnGQPTWS7Ivf9+o2AZivJ1VtP5l5ZtuaPh0PegBrRGXpOYge9bQ9KMF6yb2uLPdSb9wYkI61cJy1NgiTD/g/gaNfiaTu90lajr6fV/utoqDud8dNl2gy9MYSATfLOkezvADP0wgXhry2y5xAi4gGfHBWEX+pGi18rGwZhZMafmCQCWqhJdBd1cQCXmUEQ4ixPochrpFTTwDPa/QvGSheH+2mzzqyL7HrzFXhF7oxqZVkuy9FrYdE7BptuhvOAcXpwajzz2uNiEx+OuBvMJsMod3VwsXbHKFd8FVvP2/odqsZa62njPJ6jFCh0TVvVXWb/mAdnZcNaBhZx6MVNfKEOksdAbqkP7xQezYyVUbYVctKbTPHsapZaEe/LkGYCz6ML1zOkzv9QMPS13YWuteZL02e9+GWI90+k6FPgt5B+6BY9fgqOPItF/QxavAlDoTIVYIQ+/qVIpftUlGyVquX/HVOk7C/SeSiNF4ted9BjOlTdzvyVR9zsm6vd+AoRu8dk2y4DFt3H35i8=</diagram></mxfile>
+<mxfile host="65bd71144e" pages="1">
+    <diagram id="SALRXWrra1WZczLhJ-SY" name="Page-1">
+        <mxGraphModel dx="1268" dy="592" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#4D4D4D;" parent="1" source="2" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Docker:&lt;br&gt;Ollama" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="235" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#4D4D4D;labelBackgroundColor=none;fontColor=#000000;" parent="1" source="4" target="6" edge="1">
+                    <mxGeometry y="40" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4D4D4D;labelBackgroundColor=none;fontColor=#000000;" parent="1" source="13" target="2" edge="1">
+                    <mxGeometry y="-10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                        <mxPoint x="410" y="265" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="Docker:&lt;br&gt;CrewAI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="120" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Python Code" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.010398864746094;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="240" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="LLM models" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.010398864746094;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="355" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Docker volume with code:&lt;br&gt;&lt;b&gt;local-ai-folder&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="490" y="200" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="100" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#4D4D4D;labelBackgroundColor=none;fontColor=#000000;" parent="1" source="4" target="13" edge="1">
+                    <mxGeometry y="-10" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                        <mxPoint x="400" y="150" as="sourcePoint"/>
+                        <mxPoint x="230" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="Docker network:&lt;br&gt;local-ai-network&lt;br&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="140" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Docker volume:&lt;br&gt;&lt;b&gt;ollama-webui&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="200" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="245" y="335" as="sourcePoint"/>
+                        <mxPoint x="245" y="335" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="253.40999999999997" y="285" width="36.59" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="170" width="36.59" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#4D4D4D;" edge="1" parent="1" source="20" target="21">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Docker:&lt;br&gt;Ollama WebUI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="120" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="LLM models" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=6.010398864746094;fillColor=#76608a;fontColor=#ffffff;strokeColor=#432D57;" vertex="1" parent="1">
+                    <mxGeometry x="85" y="240" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Docker volume with models:&lt;br&gt;&lt;b&gt;ollama&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="315" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="50" y="220" as="sourcePoint"/>
+                        <mxPoint x="50" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="58.40999999999997" y="170" width="36.59" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#4D4D4D;" edge="1" parent="1" source="13" target="20">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="160" y="190" as="sourcePoint"/>
+                        <mxPoint x="160" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
