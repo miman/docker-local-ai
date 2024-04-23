@@ -17,7 +17,7 @@ volumes:
   local-ai-folder:
     external: true
 
-# We create a specific network for these Docker containers to communicate over called local-ai-folder
+# We create a specific network for these Docker containers to communicate over called local-ai-network
 networks:
-  local-ai-folder:
+  local-ai-network:
     external: true # Optional: Creates the network if it doesn't exist
