@@ -1,6 +1,6 @@
 # docker-local-ai
 
-Project used to create Docker containers to locally run Ollama and CrewAi.
+Project used to create Docker containers to locally run Ollama, CrewAi & Flowise.
 
 A volume will be created where the code can be dynamically changed between each run without any need to re-deploy the docker container.
 
@@ -14,13 +14,14 @@ This is an overview of what will be deployed:
 
 ### Installation
 
-Installs 3 docker containers and code volume by running the **install.bat** script
+Installs 4 docker containers and code volume by running the **install.bat** script
 
 These are the docker containers that are installed
 
 * Ollama - local AI model engine
 * Ollama WebUI - Web UI for local Ollama instance
 * CrewAI Python environment
+* Flowise
 
 ### Local WebUI for Ollama
 
