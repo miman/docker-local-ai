@@ -3,27 +3,36 @@ echo off
 REM The docker containers needs a common network to be able to communicate with each other
 docker network create local-ai-network
 
-REM Install the ollama Docker container
-docker run -d --gpus all --network local-ai-network --restart always -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+REM Install the Ollama Docker container
+set /p answer=Do you want to install Ollama (y/N)? 
 
-REM Install the ollama WebUI Docker container
-docker run -d -p 4512:8080 --network local-ai-network --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+if /i "%answer%" EQU "Y" (
+  echo Installing Ollama as a Docker container...
+  cd ollama
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing Ollama
+)
 
-REM Pull the Gemma model into Ollama
-docker exec -it ollama ollama pull gemma:2b
+set /p answer=Do you want to install CrewAI (y/N)? 
 
-REM Create a volume for the Used by CrewAI Docker container
-docker volume create local-ai-folder
+if /i "%answer%" EQU "Y" (
+  echo Installing CrewAI as a Docker container...
+  cd crewai
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing CrewAI
+)
 
-REM Copy the Python code to the CrewAI Docker volume
-copy code\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data
-move \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\.env.template \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\.env
+set /p answer=Do you want to install Flowise (y/N)? 
 
-mkdir \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
-copy code\output\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
-
-REM Deploy the CrewAI Docker container
-docker-compose build
-
-docker-compose up 
-
+if /i "%answer%" EQU "Y" (
+  echo Installing Flowise as a Docker container...
+  cd flowise
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing Flowise
+)
