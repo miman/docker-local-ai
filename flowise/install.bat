@@ -15,7 +15,7 @@ cd Flowise
 
 docker build --no-cache -t flowise .
 
-docker run -d --name flowise -p 4511:3000 flowise
+docker run -d --network local-ai-network --name flowise -p 4511:3000 flowise
 
 echo Flowise has been installed and is accessible on http://localhost:4511
 
