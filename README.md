@@ -18,20 +18,25 @@ Installs 4 docker containers and code volume by running the **install.bat** scri
 
 These are the docker containers that are installed
 
-* Ollama - local AI model engine
-* Ollama WebUI - Web UI for local Ollama instance
-* CrewAI Python environment
-* Flowise
+- [Ollama](https://ollama.com/) - local AI model engine
+- [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
+- [CrewAI](https://www.crewai.com/) Python environment
+- [Flowise](https://flowiseai.com/)
 
 ### Local WebUI for Ollama
 
 You can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
 
+### Flowise Web UI
+
+You can run the Flowise Web UI here: [localhost:4511](http://localhost:4511)
 
 ### Change & run code
+
 After everyhting has been installed you can open the code folder (Docker volume) in 2 ways:
-* Run **scripts/code_folder.bat** to open an explorer to the code folder
-* Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
+
+- Run **scripts/code_folder.bat** to open an explorer to the code folder
+- Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
 
 Edit the code in the main file and re-run the container by running the run.bat script.
 
