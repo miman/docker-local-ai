@@ -7,7 +7,7 @@ REM Install the ollama Docker container
 docker run -d --gpus all --network local-ai-network --restart always -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 
 REM Install the ollama WebUI Docker container
-set /p answer=Do you want to install CrewAI UI (y/N)? 
+set /p answer=Do you want to install Ollama UI (y/N)? 
 
 if /i "%answer%" EQU "Y" (
   echo Installing CrewAI UI as a Docker container...
@@ -15,7 +15,7 @@ if /i "%answer%" EQU "Y" (
 )
 
 REM Pull the Gemma model into Ollama
-set /p answer=Do you want to install CrewAI UI (y/N)? 
+set /p answer=Do you want to install gemma:2b model into CrewAI (y/N)? 
 
 if /i "%answer%" EQU "Y" (
   echo Installing Gemma:2b as a model in CrewAI...
