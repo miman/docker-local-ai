@@ -15,5 +15,6 @@ REM Deploy the CrewAI Docker container
 echo Creating and deploying CrewAI Docker container...
 docker-compose build
 
-docker-compose up 
+REM Start in detached mode
+docker-compose up -d
 

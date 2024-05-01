@@ -15,6 +15,17 @@ if /i "%answer%" EQU "Y" (
   echo Not installing Ollama
 )
 
+set /p answer=Do you want to install Autogen (y/N)? 
+
+if /i "%answer%" EQU "Y" (
+  echo Installing Autogen as a Docker container...
+  cd autogen-studio
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing Autogen
+)
+
 set /p answer=Do you want to install CrewAI (y/N)? 
 
 if /i "%answer%" EQU "Y" (

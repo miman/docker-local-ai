@@ -1,0 +1,25 @@
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+  file-test:
+    image: local-autogen-studio
+    container_name: local-autogen-studio
+    networks:
+      - local-ai-network
+    volumes:
+      - local-autogen-folder:/app # Mount the current directory as /app volume
+    build:
+      context: .
+    ports:
+      - "4514:8081"
+
+# We create a specific volume for the CrewAi Docker container to store the Python code that is executed called local-ai-folder
+volumes:
+  local-autogen-folder:
+    external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+  local-ai-network:
+    external: true # Optional: Creates the network if it doesn't exist
