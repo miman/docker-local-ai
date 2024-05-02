@@ -14,14 +14,15 @@ This is an overview of what will be deployed:
 
 ### Installation
 
-Installs 4 docker containers and code volume by running the **install.bat** script
+You have the option to install 5 docker containers and code volume by running the **install.bat** script
 
 These are the docker containers that are installed
 
-- [Ollama](https://ollama.com/) - local AI model engine
+- [Ollama](https://ollama.com/) - Local AI model engine
 - [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
-- [CrewAI](https://www.crewai.com/) Python environment
-- [Flowise](https://flowiseai.com/)
+- [CrewAI](https://www.crewai.com/) - AI Agent framework
+- [Flowise](https://flowiseai.com/)- Visual LLM UI
+- [Autogen-studio](https://autogen-studio.com/) - AI Agent framework
 
 ### Local WebUI for Ollama
 
