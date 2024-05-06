@@ -10,13 +10,11 @@ This is an overview of what will be deployed:
 
 ![overview-image](docs/images/overview.svg)
 
-## Workflow
-
-### Installation
+## Installation
 
 You have the option to install 5 docker containers and code volume by running the **install.bat** script
 
-These are the docker containers that are installed
+These are the docker containers that can be installed
 
 - [Ollama](https://ollama.com/) - Local AI model engine
 - [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
@@ -24,17 +22,19 @@ These are the docker containers that are installed
 - [Flowise](https://flowiseai.com/)- Visual LLM UI
 - [Autogen-studio](https://autogen-studio.com/) - AI Agent framework
 
-### Local WebUI for Ollama
+## Local WebUI for Ollama
 
 You can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
 
-### Flowise Web UI
+## Flowise Web UI
 
 You can run the Flowise Web UI here: [localhost:4511](http://localhost:4511)
 
+## CrewAI
+
 ### Change & run code
 
-After everyhting has been installed you can open the code folder (Docker volume) in 2 ways:
+After everyhting has been installed you can open the CrewAI code folder (Docker volume) in 2 ways:
 
 - Run **scripts/code_folder.bat** to open an explorer to the code folder
 - Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
