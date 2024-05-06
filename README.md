@@ -1,6 +1,6 @@
 # docker-local-ai
 
-Project used to create Docker containers to locally run Ollama, CrewAi & Flowise.
+Project used to create Docker containers to locally run Ollama, CrewAi, Autogen-studio & Flowise.
 
 A volume will be created where the code can be dynamically changed between each run without any need to re-deploy the docker container.
 
