@@ -15,6 +15,17 @@ if /i "%answer%" EQU "Y" (
   echo Not installing Ollama
 )
 
+set /p answer=Do you want to install AnythingLLM (y/N)? 
+
+if /i "%answer%" EQU "Y" (
+  echo Installing AnythingLLM as a Docker container...
+  cd AnythingLLM
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing AnythingLLM
+)
+
 set /p answer=Do you want to install Autogen (y/N)? 
 
 if /i "%answer%" EQU "Y" (
