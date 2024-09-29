@@ -10,14 +10,14 @@ REM Install the ollama WebUI Docker container
 set /p answer=Do you want to install Ollama UI (y/N)? 
 
 if /i "%answer%" EQU "Y" (
-  echo Installing CrewAI UI as a Docker container...
+  echo Installing Ollama UI as a Docker container...
   docker run -d -p 4512:8080 --network local-ai-network --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
 )
 
-REM Pull the Gemma model into Ollama
-set /p answer=Do you want to install gemma:2b model into CrewAI (y/N)? 
+REM Pull the llama3.2 model into Ollama
+set /p answer=Do you want to install llama3.2 3b model into Ollama (y/N)? 
 
 if /i "%answer%" EQU "Y" (
-  echo Installing Gemma:2b as a model in CrewAI...
-  docker exec -it ollama ollama pull gemma:2b
+  echo Installing llama3.2 3b as a model in Ollama...
+  docker exec -it ollama ollama pull llama3.2
 )
