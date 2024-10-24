@@ -1,0 +1,23 @@
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   file-test:
+      image: local-swarm-ai
+      container_name: local-swarm-ai
+      networks:
+         - local-ai-network
+      volumes:
+         - local-ai-folder:/app # Mount the current directory as /app volume
+      build:
+         context: .
+
+# We create a specific volume for the swarms Docker container to store the Python code that is executed called local-ai-folder
+volumes:
+   local-ai-folder:
+      external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: true # Optional: Creates the network if it doesn't exist
