@@ -8,13 +8,13 @@ services:
       networks:
          - local-ai-network
       volumes:
-         - local-ai-folder:/app # Mount the current directory as /app volume
+         - swarm-ai-folder:/app # Mount the current directory as /app volume
       build:
          context: .
 
 # We create a specific volume for the swarms Docker container to store the Python code that is executed called local-ai-folder
 volumes:
-   local-ai-folder:
+   swarm-ai-folder:
       external: true
 
 # We create a specific network for these Docker containers to communicate over called local-ai-network
