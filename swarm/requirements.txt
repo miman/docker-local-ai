@@ -1,4 +1,7 @@
 git+https://github.com/openai/swarm.git
 duckduckgo_search
 python-dotenv
-
+duckduckgo_search
+requests
+beautifulsoup4
+lxml

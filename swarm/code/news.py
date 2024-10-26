@@ -1,12 +1,16 @@
 from duckduckgo_search import DDGS
-from init_env import initEnv
-from parse_web_page import getWebpageText
 from swarm import Swarm, Agent
 from datetime import datetime
-from web_search import webSearch
+import requests
+from dotenv  import load_dotenv, set_key
 
-initEnv()
+dotenv_path = '.env'
+set_key(dotenv_path, 'OPENAI_BASE_URL', 'http://host.docker.internal:11434/v1')
+set_key(dotenv_path, 'OPENAI_API_KEY', 'dummy')
 
+load_dotenv()
+
+# OPENAI_BASE_URL=http://localhost:11434/v1
 MODEL = 'llama3.2:latest'
 
 current_date = datetime.now().strftime("%Y-%m")
@@ -14,13 +18,40 @@ current_date = datetime.now().strftime("%Y-%m")
 # Initialize Swarm client
 client = Swarm()
 
+# 1. Create Internet Search Tool
+
+def get_news_articles(topic):
+    print(f"Running DuckDuckGo news search for {topic}...")
+    
+    # DuckDuckGo search
+    ddg_api = DDGS()
+    results = ddg_api.text(f"{topic} {current_date}", max_results=1)
+    if results:
+        url = results[0]['href']
+        news_results = "\n\n".join([f"Title: {result['title']}\nURL: {url}\nDescription: {result['body']} \nWebpage body: {getWebpagePayload(url)}" for result in results])
+        print(f"news_results: {news_results}...")
+        return news_results
+    else:
+        return f"Could not find news results for {topic}."
+
+def getWebpagePayload(url):
+    response = requests.get(url)
+    response.encoding = 'utf-8'  # Ensure UTF-8 encoding
+
+    if response.status_code == 200:
+        data = response.text
+        return data
+    else:
+        print(f"Failed to retrieve data: {response.status_code}")
+        return ""
+        
 # 2. Create AI Agents
 
 # News Agent to fetch news
 news_agent = Agent(
     name="News Assistant",
     instructions="You provide the latest news articles for a given topic using Web search.",
-    functions=[webSearch],
+    functions=[get_news_articles],
     model=MODEL
 )
 
@@ -34,7 +65,7 @@ editor_agent = Agent(
 # 3. Create workflow
 
 def run_news_workflow(topic):
-    print("Running web search Agent workflow...\n")
+    print("Running news Agent workflow...")
     
     # Step 1: Fetch news
     news_response = client.run(
@@ -45,7 +76,6 @@ def run_news_workflow(topic):
     raw_news = news_response.messages[-1]["content"]
     
     # Step 2: Pass news to editor for final review
-    print("Running editor Agent workflow... \n\n")
     edited_news_response = client.run(
         agent=editor_agent,
         messages=[{"role": "user", "content": raw_news }],
