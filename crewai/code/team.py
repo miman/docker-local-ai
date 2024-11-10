@@ -11,10 +11,10 @@ from llms import manager_llm
 
 # Instantiate your crew with a sequential process
 crewLoggingLvlStr: str | None = os.getenv('CREW_LOGGING_LEVEL')
-crewLoggingLvl: int = 2
+crewLoggingLvl: bool = False
 
 if (crewLoggingLvlStr):
-   crewLoggingLvl = int(crewLoggingLvlStr)
+   crewLoggingLvl = bool(crewLoggingLvlStr)
 
 def execute(tasks):
    crew = Crew(

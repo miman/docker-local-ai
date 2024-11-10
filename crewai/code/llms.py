@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
-from langchain_community.llms.ollama import Ollama
 import os
+from crewai import LLM
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -21,35 +21,35 @@ _ollama_llm = None
 def ollama_llm():
     global _ollama_llm  # Mark as global
     if (_ollama_llm == None):
-        _ollama_llm = Ollama(model="llama2", base_url=ollamaApiBaseUrl)
+        _ollama_llm = LLM(model="ollama/llama3.2", base_url=ollamaApiBaseUrl)
     return _ollama_llm
 
 _mistral = None
 def mistral():
     global _mistral  # Mark as global
     if (_mistral is None):
-        _mistral = Ollama(model='mistral', base_url=ollamaApiBaseUrl)
+        _mistral = LLM(model='ollama/mistral', base_url=ollamaApiBaseUrl)
     return _mistral
 
 _openhermes = None
 def openhermes():
     global _openhermes  # Mark as global
     if (_openhermes is None):
-        _openhermes = Ollama(model='openhermes', base_url=ollamaApiBaseUrl)
+        _openhermes = LLM(model='ollama/openhermes', base_url=ollamaApiBaseUrl)
     return _openhermes
 
 _gemma = None
 def gemma():
     global _gemma
     if (_gemma == None):
-        _gemma = Ollama(model='gemma:2b', base_url=ollamaApiBaseUrl)
+        _gemma = LLM(model='ollama/gemma2', base_url=ollamaApiBaseUrl)
     return _gemma
 
 _llama3 = None
 def llama3():
     global _llama3
     if (_llama3 == None):
-        _llama3 = Ollama(model='llama3', base_url=ollamaApiBaseUrl)
+        _llama3 = LLM(model='ollama/llama3.2', base_url=ollamaApiBaseUrl)
     return _llama3
 
 # Code LLMs
@@ -57,21 +57,21 @@ _codellama = None
 def codellama():
     global _codellama
     if (_codellama is None):
-        _codellama = Ollama(model='codellama', base_url=ollamaApiBaseUrl)
+        _codellama = LLM(model='ollama/codellama', base_url=ollamaApiBaseUrl)
     return _codellama
 
 _codeqwen = None
 def codeqwen():
     global _codeqwen
     if (_codeqwen == None):
-        _codeqwen = Ollama(model='codeqwen', base_url=ollamaApiBaseUrl)
+        _codeqwen = LLM(model='ollama/codeqwen', base_url=ollamaApiBaseUrl)
     return _codeqwen
 
 _dolphin_llama_llm = None
 def dolphin_llama_llm():
     global _dolphin_llama_llm  # Mark as global
     if (_dolphin_llama_llm == None):
-        _dolphin_llama_llm = Ollama(model="dolphin-llama3", base_url=ollamaApiBaseUrl)
+        _dolphin_llama_llm = LLM(model="ollama/dolphin-llama3", base_url=ollamaApiBaseUrl)
     return _dolphin_llama_llm
 
 # Image recognition LLM
@@ -79,7 +79,7 @@ _llava_llm = None
 def llava_llm():
     global _llava_llm  # Mark as global
     if (_llava_llm == None):
-        _llava_llm = Ollama(model="llava", base_url=ollamaApiBaseUrl)
+        _llava_llm = LLM(model="ollama/llava", base_url=ollamaApiBaseUrl)
     return _llava_llm
 
 # Medical LLM
@@ -87,7 +87,7 @@ _meditron_llm = None
 def meditron_llm():
     global _meditron_llm  # Mark as global
     if (_meditron_llm == None):
-        _meditron_llm = Ollama(model="meditron", base_url=ollamaApiBaseUrl)
+        _meditron_llm = LLM(model="ollama/meditron", base_url=ollamaApiBaseUrl)
     return _meditron_llm
 
 
@@ -108,17 +108,17 @@ def openai_llm():
 
 # ========================================
 # LLM per role
-manager_llm = gemma()
+manager_llm = llama3()
 def researcher_llm():
-    return gemma()
+    return llama3()
 
 def writer_llm():
-    return gemma()
+    return llama3()
 
 def coder_llm():
-    return gemma()
+    return llama3()
 
 def tester_llm():
-    return gemma()
+    return llama3()
 
 #ChatOpenAI(temperature=0, api_key=openApiKey, model=openApiModel, verbose=True)
