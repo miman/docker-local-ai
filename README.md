@@ -22,6 +22,7 @@ These are the docker containers that can be installed
 -  [Flowise](https://flowiseai.com/)- Visual LLM UI
 -  [Autogen-studio](https://autogen-studio.com/) - AI Agent framework
 -  [OpenAI Swarm](https://github.com/openai/swarm) - AI Agent framework
+-  [ComfyUI](https://github.com/comfyanonymous/ComfyUI.git) - Text to image AI tool
 
 ## Local WebUI for Ollama
 
