@@ -1,0 +1,32 @@
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   file-test:
+      image: comfy-ui
+      container_name: comfy-ui
+      networks:
+         - local-ai-network
+      volumes:
+         - local-comfyui-folder:/app # Mount the current directory as /app volume
+      build:
+         context: .
+      ports:
+         - "4515:8188"
+      deploy:
+         resources:
+            reservations:
+               devices:
+                  - driver: nvidia
+                    count: all
+                    capabilities: [gpu]
+
+# We create a specific volume for the ComfyUI Docker container to store the files realted to this container
+volumes:
+   local-comfyui-folder:
+      external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: true # Optional: Creates the network if it doesn't exist
