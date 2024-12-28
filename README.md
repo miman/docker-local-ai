@@ -64,6 +64,10 @@ Docker must have been installed first
 
 Information about the file structure of the project can be found [here](docs/files.md)
 
+## Port reservations
+
+Information about what ports that are used by each containercan be found [here](ports.md)
+
 ## Manual Installation
 
 Manual installation instructions can be found [here](docs/local-ai-install.md)
