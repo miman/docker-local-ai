@@ -1,0 +1,27 @@
+version: "3.7"
+
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   ollama-container:
+      image: ollama/ollama
+      container_name: ollama-container
+      networks:
+         - local-ai-network
+      ports:
+         - "11434:11434"
+      restart: always
+      volumes:
+         - /volume1/docker/ollama/ollama:/root/.ollama
+
+# We create a specific volume for the Docker container to store the files related to this container
+volumes:
+   ollama-folder:
+      external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: false
+# Optional: Creates the network if it doesn't exist

@@ -1,0 +1,30 @@
+version: "3.7"
+
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   ollama-container:
+      image: ghcr.io/open-webui/open-webui:main
+      container_name: ollama-open-webui
+      networks:
+         - local-ai-network
+      ports:
+         - "4512:8080"
+      restart: always
+      volumes:
+         - /volume1/docker/ollama/open-webui/data:/app/backend/data
+      extra_hosts:
+         - "host.docker.internal:host-gateway"
+      environment:
+         - USE_OLLAMA_DOCKER=true
+
+# We create a specific volume for the Docker container to store the files related to this container
+volumes:
+   ollama-folder:
+      external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: true
