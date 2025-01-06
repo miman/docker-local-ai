@@ -70,3 +70,13 @@ if /i "%answer%" EQU "Y" (
   echo Not installing OpenAI Swarm
 )
 
+set /p answer=Do you want to install n8n (y/N)? 
+
+if /i "%answer%" EQU "Y" (
+  echo Installing n8n as a Docker container...
+  cd n8n
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing n8n
+)

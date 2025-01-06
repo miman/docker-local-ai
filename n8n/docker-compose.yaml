@@ -1,0 +1,24 @@
+# Creating Docker container for an n8n instance
+
+services:
+   n8n-container:
+      image: docker.n8n.io/n8nio/n8n
+      container_name: n8n
+      networks:
+         - local-ai-network
+      ports:
+         - "5678:5678"
+      volumes:
+         - n8n_data:/home/node/.n8n
+
+# We create a specific volume for the Docker container to store the files related to this container
+volumes:
+   n8n_data:
+      external: true
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: false
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
