@@ -17,10 +17,14 @@
 	},
 
 	// Mount .aws folder from host machine to the container
-	// "mounts": ["source=${localEnv:HOME}/.npmrc,target=/.npmrc,type=bind"],
-	// "containerEnv": {
-	// 	"NPM_CONFIG_USERCONFIG": "/.npmrc"
-	// },
+	"mounts": [
+		"source=${localEnv:HOME}/.npmrc,target=/.npmrc,type=bind",
+	    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
+	    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+	],
+	"containerEnv": {
+		"NPM_CONFIG_USERCONFIG": "/.npmrc"
+	},
 
 	"runArgs": ["--name", "Docker-Local-AI"],
 
