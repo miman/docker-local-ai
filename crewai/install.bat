@@ -11,10 +11,8 @@ move \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\.env.t
 mkdir \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
 copy code\output\*.* \\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data\output
 
-REM Deploy the CrewAI Docker container
-echo Creating and deploying CrewAI Docker container...
-docker-compose build
-
 REM Start in detached mode
-docker-compose up -d
+docker-compose down
+docker-compose pull
+docker-compose up -d --force-recreate --build
 
