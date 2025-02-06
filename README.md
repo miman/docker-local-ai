@@ -45,13 +45,9 @@ On the page linked [here](docs/ai-apps.md) you can find some more info for each 
 
 Docker must have been installed first
 
-## Project files
-
-Information about the file structure of the project can be found [here](docs/files.md)
-
 ## Port reservations
 
-Information about what ports that are used by each containercan be found [here](docs/ports.md)
+Information about what ports that are used by each container can be found [here](docs/ports.md)
 
 ## Synology NAS
 
@@ -60,3 +56,7 @@ The scripts in the synology-nas folder can be used to install and configure the 
 ## VS Code AI plugins
 
 You can run **vscode-plugins.bat** if you want to install a number of nice AI related extensions for Visual Studio Code.
+
+## Project files
+
+Information about the file structure of the project can be found [here](docs/files.md)
