@@ -21,8 +21,11 @@ These are the docker containers that can be installed
 -  [CrewAI](https://www.crewai.com/) - AI Agent framework
 -  [Flowise](https://flowiseai.com/)- Visual LLM UI
 -  [Autogen-studio](https://autogen-studio.com/) - AI Agent framework
--  [OpenAI Swarm](https://github.com/openai/swarm) - AI Agent framework
+-  [OpenAI Swarm](https://github.com/openai/swarm) - AI Agent framework by OpenAI (Beta)
 -  [ComfyUI](https://github.com/comfyanonymous/ComfyUI.git) - Text to image AI tool
+-  [N8N](https://flowiseai.com/)- n8n is a powerful, open-source, workflow automation tool.
+-  [AnythingLLM](https://flowiseai.com/)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+-  [Bolt.diy](https://flowiseai.com/)- Bolt.diy is an open-source platform for building Web UI's.
 
 ## Local WebUI for Ollama
 
