@@ -9,10 +9,17 @@ IF ERRORLEVEL 1 (
 )
 
 REM Start in detached mode, ensuring the latest image is used & restarting container
+set /p answer=Do you want to install the Ollama UI (y/N)? 
 echo Deploying Docker container...
+if /i "%answer%" EQU "Y" (
 docker-compose down
 docker-compose pull
 docker-compose up -d --force-recreate --build
+) else (
+  docker-compose down
+  docker-compose pull ollama-container
+  docker-compose up -d --force-recreate --build ollama-container
+)
 
 echo Ollama has been installed and is accessible on http://localhost:4512
 
