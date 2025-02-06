@@ -13,20 +13,23 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/devcontainers/features/git:1": {} // Git
+		"ghcr.io/devcontainers/features/git:1": {}, // Git
+        "ghcr.io/devcontainers/features/docker-in-docker:1": { "version": "latest" } // Docker
 	},
 
 	// Mount .aws folder from host machine to the container
 	"mounts": [
 		"source=${localEnv:HOME}/.npmrc,target=/.npmrc,type=bind",
 	    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
-	    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+	    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind",
+		 "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" // Mount Docker socket
 	],
 	"containerEnv": {
 		"NPM_CONFIG_USERCONFIG": "/.npmrc"
 	},
 
-	"runArgs": ["--name", "Docker-Local-AI"],
+	// Run as root to be able to access the local Docker daemon
+	"runArgs": ["--name", "Docker-Local-AI", "--user", "root"],
 
 	"customizations": {
 		"vscode": {
