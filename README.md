@@ -25,45 +25,21 @@ These are the docker containers that can be installed
 -  [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
 -  [CrewAI](https://www.crewai.com/) - AI Agent framework
 -  [Flowise](https://flowiseai.com/)- Visual LLM UI
--  [Autogen-studio](https://autogen-studio.com/) - AI Agent framework
+-  [Autogen-studio](https://microsoft.github.io/autogen/0.2/docs/autogen-studio/getting-started/) - AI Agent framework
 -  [OpenAI Swarm](https://github.com/openai/swarm) - AI Agent framework by OpenAI (Beta)
 -  [ComfyUI](https://github.com/comfyanonymous/ComfyUI.git) - Text to image AI tool
--  [N8N](https://flowiseai.com/)- n8n is a powerful, open-source, workflow automation tool.
--  [AnythingLLM](https://flowiseai.com/)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
--  [Bolt.diy](https://flowiseai.com/)- Bolt.diy is an open-source platform for building Web UI's.
+-  [N8N](https://n8n.io/)- n8n is a powerful, open-source, workflow automation tool.
+-  [AnythingLLM](https://anythingllm.com/)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+-  [Bolt.diy](https://github.com/stackblitz-labs/bolt.diy)- Bolt.diy is an open-source platform for building Web UI's.
 
-## Local WebUI for Ollama
+## Webcasts
 
-You can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
+In this YouTube playlist you can see some webcasts related to this GitHub repository:
+https://www.youtube.com/playlist?list=PLoZRZ2zrcw_-Oi3Sp3IeW2zAWAMEbKKOd
 
-## Flowise Web UI
+## More info about the different apps
 
-You can run the Flowise Web UI here: [localhost:4511](http://localhost:4511)
-
-## CrewAI
-
-### Change & run code
-
-After everyhting has been installed you can open the CrewAI code folder (Docker volume) in 2 ways:
-
--  Run **scripts/code_folder.bat** to open an explorer to the code folder
--  Run **scripts/open_vs_code.bat** to open an VS Code editor at the code folder
-
-Edit the code in the main file and re-run the container by running the run.bat script.
-
-The output can be viewed in the Docker desktop by clicking on the container & Logs or by running the **docker logs local-crew-ai** command
-
-#### Python dependencies
-
-If you need any other python dependencies in your code add this to the **./requirements.txt** file before running **docker-compose build**.
-
-If you already deployed everything you need to delete the container & image & run the wollowing commands again:
-
-```
-docker-compose build
-
-docker-compose up
-```
+On the page linked [here](docs/ai-apps.md) you can find some more info for each of the apps that can be installed using this repository
 
 ## Pre-reqs
 
@@ -76,10 +52,6 @@ Information about the file structure of the project can be found [here](docs/fil
 ## Port reservations
 
 Information about what ports that are used by each containercan be found [here](ports.md)
-
-## Manual Installation
-
-Manual installation instructions can be found [here](docs/local-ai-install.md)
 
 ## Synology NAS
 

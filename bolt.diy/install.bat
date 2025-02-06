@@ -21,7 +21,7 @@ cd Bolt.diy
 REM Using npm script:
 call npm run dockerbuild
 
-REM Create & install the Docker image for Bolt.diy & expose on port 4511
+REM Create & install the Docker image for Bolt.diy & expose on port 5173
 echo Creating and deploying Bolt.diy Docker container...
 
 echo Removing the old container...
