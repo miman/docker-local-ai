@@ -12,7 +12,12 @@ This is an overview of what will be deployed:
 
 ## Installation
 
-You have the option to install 5 docker containers and code volume by running the **install.bat** script
+You have the option to install a number of AI related docker containers and code volume by running the **install.bat** script
+
+You will get a question for each tool if you want to install it or not.
+
+If you just want to install one tool without all questions just go into the relevant folder & run install.
+A lot of the tools depend on Ollama being installed first though (if you want to run the LLM locally)
 
 These are the docker containers that can be installed
 
@@ -75,3 +80,7 @@ Information about what ports that are used by each containercan be found [here](
 ## Manual Installation
 
 Manual installation instructions can be found [here](docs/local-ai-install.md)
+
+## Synology NAS
+
+The scripts in the synology-nas folder can be used to install and configure the AI tools on a Synology NAS docker instance.

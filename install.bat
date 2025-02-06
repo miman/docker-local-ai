@@ -26,7 +26,7 @@ if /i "%answer%" EQU "Y" (
   echo Not installing AnythingLLM
 )
 
-set /p answer=Do you want to install Autogen (y/N)? 
+set /p answer=Do you want to install Autogen studio (y/N)? 
 
 if /i "%answer%" EQU "Y" (
   echo Installing Autogen as a Docker container...
@@ -79,4 +79,26 @@ if /i "%answer%" EQU "Y" (
   cd ..
 ) else (
   echo Not installing n8n
+)
+
+set /p answer=Do you want to install Bolt.diy (y/N)? 
+
+if /i "%answer%" EQU "Y" (
+  echo Installing Bolt.diy as a Docker container...
+  cd bolt.diy
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing Bolt.diy
+)
+
+set /p answer=Do you want to install comfy-ui (y/N)? 
+
+if /i "%answer%" EQU "Y" (
+  echo Installing comfy-ui as a Docker container...
+  cd comfy_ui
+  CALL install.bat
+  cd ..
+) else (
+  echo Not installing comfy-ui
 )
