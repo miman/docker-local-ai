@@ -61,7 +61,7 @@ ComfyUI is an powerful and modular diffusion model GUI and backend, used to gene
 
 More information can be found here: https://github.com/comfyanonymous/ComfyUI
 
-After installation you can run the ComfyUI Web UI here: [localhost:4511](http://localhost:4515)
+After installation you can run the ComfyUI Web UI here: [localhost:4515](http://localhost:4515)
 
 ## Bolt.diy
 
@@ -69,7 +69,7 @@ Bolt.diy is an open source tool for developers to Prompt, run, edit, and deploy 
 
 More information can be found here: https://github.com/stackblitz-labs/bolt.diy
 
-After installation you can run the Bolt.diy Web UI here: [localhost:4511](http://localhost:5173)
+After installation you can run the Bolt.diy Web UI here: [localhost:5173](http://localhost:5173)
 
 ## Autogen-studio
 
@@ -78,7 +78,7 @@ It is built on top of the AutoGen framework, which is a toolkit for building AI 
 
 More information can be found here: https://microsoft.github.io/autogen/0.2/docs/autogen-studio/getting-started/
 
-After installation you can run the Autogen-studio Web UI here: [localhost:4511](http://localhost:4514)
+After installation you can run the Autogen-studio Web UI here: [localhost:4514](http://localhost:4514)
 
 ## OpenAI Swarm
 
@@ -92,7 +92,7 @@ AnythingLLM is an open-source platform that lets you communicate with various LL
 
 More information can be found here: https://anythingllm.com/
 
-After installation you can run the AnythingLLM Web UI here: [localhost:4511](http://localhost:4513)
+After installation you can run the AnythingLLM Web UI here: [localhost:4513](http://localhost:4513)
 
 ## N8N
 
@@ -100,4 +100,4 @@ N8N is a workflow automation platform whre you visually can create AI solutions 
 
 More information can be found here: https://n8n.io/
 
-After installation you can run the N8N Web UI here: [localhost:4511](http://localhost:5678)
+After installation you can run the N8N Web UI here: [localhost:5678](http://localhost:5678)

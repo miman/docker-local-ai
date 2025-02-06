@@ -51,7 +51,7 @@ Information about the file structure of the project can be found [here](docs/fil
 
 ## Port reservations
 
-Information about what ports that are used by each containercan be found [here](ports.md)
+Information about what ports that are used by each containercan be found [here](docs/ports.md)
 
 ## Synology NAS
 
