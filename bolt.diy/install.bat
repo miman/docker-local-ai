@@ -24,8 +24,11 @@ call npm run dockerbuild
 REM Create & install the Docker image for Bolt.diy & expose on port 4511
 echo Creating and deploying Bolt.diy Docker container...
 
+echo Removing the old container...
+docker rm -f boltdiy
+
 call docker compose --profile development up
 
-echo Bolt.diy has been installed and is accessible on http://localhost:4511
+echo Bolt.diy has been installed and is accessible on http://localhost:5173
 
 cd ..
