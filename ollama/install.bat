@@ -25,9 +25,12 @@ echo Ollama has been installed and is accessible on http://localhost:4512
 
 echo Find and download models here: https://ollama.com/library
 
+
 REM Pull the qwen2.5:3b model into Ollama
 set /p answer=Do you want to install qwen2.5:3b model into Ollama (y/N)? 
 if /i "%answer%" EQU "Y" (
   echo Installing qwen2.5:3b as a model in Ollama...
   docker exec -it ollama ollama pull qwen2.5:3b
 )
+
+echo Remember to copy the scripts/ollama.bat file to the windows folder if you want use the ollama command as usual even though it is running in Docker
