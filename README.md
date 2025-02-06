@@ -84,3 +84,7 @@ Manual installation instructions can be found [here](docs/local-ai-install.md)
 ## Synology NAS
 
 The scripts in the synology-nas folder can be used to install and configure the AI tools on a Synology NAS docker instance.
+
+## VS Code AI plugins
+
+You can run **vscode-plugins.bat** if you want to install a number of nice AI related extensions for Visual Studio Code.
