@@ -17,12 +17,12 @@ if ollamaApiBaseUrl is None:
     ollamaApiBaseUrl = "http://host.docker.internal:11434"
 
 # General LLMs
-_ollama_llm = None
-def ollama_llm():
-    global _ollama_llm  # Mark as global
-    if (_ollama_llm == None):
-        _ollama_llm = LLM(model="ollama/llama3.2", base_url=ollamaApiBaseUrl)
-    return _ollama_llm
+_qwen_llm = None
+def qwen_llm():
+    global _qwen_llm  # Mark as global
+    if (_qwen_llm == None):
+        _qwen_llm = LLM(model="ollama/qwen2.5", base_url=ollamaApiBaseUrl)
+    return _qwen_llm
 
 _mistral = None
 def mistral():
