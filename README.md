@@ -21,16 +21,16 @@ A lot of the tools depend on Ollama being installed first though (if you want to
 
 These are the docker containers that can be installed
 
--  [Ollama](https://ollama.com/) - Local AI model engine
+-  [Ollama](ollama/README.md) - Local AI model engine
 -  [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
--  [CrewAI](https://www.crewai.com/) - AI Agent framework
--  [Flowise](https://flowiseai.com/)- Visual LLM UI
--  [Autogen-studio](https://microsoft.github.io/autogen/0.2/docs/autogen-studio/getting-started/) - AI Agent framework
--  [OpenAI Swarm](https://github.com/openai/swarm) - AI Agent framework by OpenAI (Beta)
--  [ComfyUI](https://github.com/comfyanonymous/ComfyUI.git) - Text to image AI tool
--  [N8N](https://n8n.io/)- n8n is a powerful, open-source, workflow automation tool.
--  [AnythingLLM](https://anythingllm.com/)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
--  [Bolt.diy](https://github.com/stackblitz-labs/bolt.diy)- Bolt.diy is an open-source platform for building Web UI's.
+-  [CrewAI](crewai/README.md) - AI Agent framework
+-  [Flowise](flowise/README.md)- Visual LLM UI
+-  [Autogen-studio](autogen-studio/README.md) - AI Agent framework
+-  [OpenAI Swarm](swarm/README.md) - AI Agent framework by OpenAI (Beta)
+-  [ComfyUI](comfy_ui/README.md) - Text to image AI tool
+-  [N8N](n8n/README.md)- n8n is a powerful, open-source, workflow automation tool.
+-  [AnythingLLM](AnythingLLM/README.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+-  [Bolt.diy](bolt.diy/README.md)- Bolt.diy is an open-source platform for building Web UI's.
 
 ## Webcasts
 
@@ -52,6 +52,8 @@ Information about what ports that are used by each container can be found [here]
 ## Synology NAS
 
 The scripts in the synology-nas folder can be used to install and configure the AI tools on a Synology NAS docker instance.
+
+More info can be found [here](synology-nas/readme.md)
 
 ## VS Code AI plugins
 
