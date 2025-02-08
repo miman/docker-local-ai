@@ -1,4 +1,5 @@
 crewai
 crewai-tools
+uv
 langchain-community
 duckduckgo_search

@@ -37,17 +37,6 @@ if /i "%answer%" EQU "Y" (
   echo Not installing Autogen
 )
 
-set /p answer=Do you want to install CrewAI (y/N)? 
-
-if /i "%answer%" EQU "Y" (
-  echo Installing CrewAI as a Docker container...
-  cd crewai
-  CALL install.bat
-  cd ..
-) else (
-  echo Not installing CrewAI
-)
-
 set /p answer=Do you want to install Flowise (y/N)? 
 
 if /i "%answer%" EQU "Y" (
