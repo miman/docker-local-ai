@@ -21,16 +21,16 @@ A lot of the tools depend on Ollama being installed first though (if you want to
 
 These are the docker containers that can be installed
 
--  [Ollama](ollama/README.md) - Local AI model engine
+-  [Ollama](ollama/ReadMe.md) - Local AI model engine
 -  [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
--  [CrewAI](crewai/README.md) - AI Agent framework
--  [Flowise](flowise/README.md)- Visual LLM UI
--  [Autogen-studio](autogen-studio/README.md) - AI Agent framework
--  [OpenAI Swarm](swarm/README.md) - AI Agent framework by OpenAI (Beta)
--  [ComfyUI](comfy_ui/README.md) - Text to image AI tool
--  [N8N](n8n/README.md)- n8n is a powerful, open-source, workflow automation tool.
--  [AnythingLLM](AnythingLLM/README.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
--  [Bolt.diy](bolt.diy/README.md)- Bolt.diy is an open-source platform for building Web UI's.
+-  [CrewAI](crewai/ReadMe.md) - AI Agent framework
+-  [Flowise](flowise/ReadMe.md)- Visual LLM UI
+-  [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
+-  [OpenAI Swarm](swarm/ReadMe.md) - AI Agent framework by OpenAI (Beta)
+-  [ComfyUI](comfy_ui/ReadMe.md) - Text to image AI tool
+-  [N8N](n8n/ReadMe.md)- n8n is a powerful, open-source, workflow automation tool.
+-  [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+-  [Bolt.diy](bolt.diy/ReadMe.md)- Bolt.diy is an open-source platform for building Web UI's.
 
 ## Webcasts
 
