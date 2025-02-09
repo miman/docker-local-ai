@@ -25,3 +25,9 @@ More information can be found here: https://openwebui.com/
 After installation you can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
 
 The config for this web app will be placed on a separate Docker volume called **_open-webui_**, so they are kept even if you delete the container & reinstalls a newer version.
+
+## Ollama API access code
+
+There is a demo project with some example code in Javascript that accesses the Ollama instance
+
+More info can be found [here](demo_code/ReadMe.md)
