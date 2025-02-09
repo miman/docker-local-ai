@@ -48,17 +48,6 @@ if /i "%answer%" EQU "Y" (
   echo Not installing Flowise
 )
 
-set /p answer=Do you want to install OpenAI Swarm (using Ollama) (y/N)? 
-
-if /i "%answer%" EQU "Y" (
-  echo Installing OpenAI Swarm as a Docker container...
-  cd swarm
-  CALL install.bat
-  cd ..
-) else (
-  echo Not installing OpenAI Swarm
-)
-
 set /p answer=Do you want to install n8n (y/N)? 
 
 if /i "%answer%" EQU "Y" (
