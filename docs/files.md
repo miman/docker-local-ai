@@ -38,8 +38,6 @@
 | File               | Description                                                                                                |
 | ------------------ | ---------------------------------------------------------------------------------------------------------- |
 | install.bat        | Used to install the docker containers and copy the files to the Docker volume used by the CrewAI container |
-| open_vs_code.bat   | Used to open a VS Code editor in the code volume folder used by the CrewAI Docker container                |
-| code_folder.bat    | Used to open a Windows Explorer window in the code volume folder used by the CrewAI Docker container       |
 | vscode-plugins.bat | Used to install some good AI related plugins in Visual Studio Code                                         |
 
 ### Scripts in the scripts folder
