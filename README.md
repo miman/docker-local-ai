@@ -21,8 +21,7 @@ A lot of the tools depend on Ollama being installed first though (if you want to
 
 These are the docker containers that can be installed
 
--  [Ollama](ollama/ReadMe.md) - Local AI model engine
--  [Ollama WebUI](https://github.com/open-webui/open-webui) - Web UI for local Ollama instance
+-  [Ollama](ollama/ReadMe.md) - Local AI model engine & Web UI for Ollama
 -  [CrewAI](crewai/ReadMe.md) - AI Agent framework
 -  [Flowise](flowise/ReadMe.md)- Visual LLM UI
 -  [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
