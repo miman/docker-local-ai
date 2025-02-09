@@ -12,6 +12,10 @@ More information about Ollama can be found here: https://ollama.com/
 
 The list of models that can be used can be found here: https://ollama.com/library
 
+The models downloaded to your Ollama server will be placed on a separate Docker volume called **_ollama_**, so they are kept even if you delete the container & reinstalls a newer version.
+
+The Ollama srv docker image is configured to use you NVidia GPU for faster inference.
+
 ## Local WebUI for Ollama
 
 Open WebUI is an extensible, self-hosted AI interface that adapts to your workflow, all while operating entirely offline.
@@ -19,3 +23,5 @@ Open WebUI is an extensible, self-hosted AI interface that adapts to your workfl
 More information can be found here: https://openwebui.com/
 
 After installation you can run the Ollama WebUI here: [localhost:4512](http://localhost:4512)
+
+The config for this web app will be placed on a separate Docker volume called **_open-webui_**, so they are kept even if you delete the container & reinstalls a newer version.

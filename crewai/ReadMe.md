@@ -23,6 +23,8 @@ There is a demo project here that you can run & see how it is built, which you c
 
 ## Docker container deployment
 
+The code in the code folder will automatically be copied to a Docker volume called **_local-ai-folder_**, observe that this will be replaced if you reinstall the project.
+
 ### Change & run code
 
 After everyhting has been installed you can open the CrewAI code folder (Docker volume) in 2 ways:
