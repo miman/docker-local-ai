@@ -8,8 +8,9 @@ const openai = new OpenAI({
 	apiKey: "not-used", // required but unused
 });
 
-const completion = await openai.chat.completions.create({
-	model: process.env.MODEL,
+const model: string = process.env.MODEL ?? "granite3.1-dense:2b";
+const completion: OpenAI.Chat.Completions.ChatCompletion = await openai.chat.completions.create({
+	model: model,
 	messages: [{ role: "user", content: "Why is the sky blue?" }],
 });
 

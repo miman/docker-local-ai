@@ -9,15 +9,17 @@ const openai = new OpenAI({
 	apiKey: "not-used", // Required but unused
 });
 
-async function describeImage(imagePath) {
+const model: string = process.env.LLAVA_MODEL ?? "llava-phi3";
+
+async function describeImage(imagePath: string) {
 	try {
 		// 1. Read the image file
 		const imageBuffer = await fs.readFile(imagePath);
 		const base64Image = imageBuffer.toString("base64");
 
 		// 2. Create the chat completion request (Llava style)
-		const completion = await openai.chat.completions.create({
-			model: process.env.LLAVA_MODEL, // Or the name of your Llava model in Ollama
+		const completion: OpenAI.Chat.Completions.ChatCompletion = await openai.chat.completions.create({
+			model: model, // Or the name of your Llava model in Ollama
 			messages: [
 				{
 					role: "user",
@@ -41,7 +43,7 @@ async function describeImage(imagePath) {
 }
 
 async function main() {
-	const imagePath = "./resources/schnauser-on-beach.png"; // Replace with the actual path to your image
+	const imagePath: string = "./resources/schnauser-on-beach.png"; // Replace with the actual path to your image
 	const description = await describeImage(imagePath);
 	if (description) {
 		console.log("Image description obtained successfully!");

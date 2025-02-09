@@ -6,14 +6,21 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"describe-image": "node src/image_description_test.js",
-		"chat-tools": "node src/image_description_tools.js",
-		"test-chat": "node src/chat_test.js"
+		"describe-image": "node dist/image_description_test.js",
+		"chat-tools": "node dist/chat_tools.js",
+		"test-chat": "node dist/chat_test.js",
+		"clean": "rimraf dist",
+		"build": "npm run clean && tsc"
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
 		"dotenv": "^16.4.7",
 		"openai": "^4.83.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.13.1",
+		"rimraf": "^6.0.1",
+		"typescript": "^5.7.3"
 	}
 }

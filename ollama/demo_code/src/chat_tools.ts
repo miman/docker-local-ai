@@ -3,15 +3,16 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const openai = new OpenAI({
+const openai: OpenAI = new OpenAI({
   baseURL: process.env.API_BASE + "/v1",
   apiKey: "not-used", 
 });
 
 async function main() {
   try {
-    const completion = await openai.chat.completions.create({
-      model: process.env.MODEL,
+    const model: string = process.env.MODEL ?? "granite3.1-dense:2b";
+    const completion: OpenAI.Chat.Completions.ChatCompletion = await openai.chat.completions.create({
+      model: model,
       messages: [{ role: "user", content: "What is the weather in Toronto?" }],
       tools: [ // Add the 'tools' property
         {
@@ -35,7 +36,7 @@ async function main() {
       ],
     });
 
-    const context = [];
+    const context: string[] = [];
     if (completion.choices[0].message.tool_calls && completion.choices[0].message.tool_calls.length > 0) {
       completion.choices[0].message.tool_calls.forEach(toolCall => {
         if (toolCall.type === "function") {
@@ -52,7 +53,7 @@ async function main() {
   }
 }
 
-function handleFnCall(fn) {
+function handleFnCall(fn: any) {
   // Implement the logic to handle function calls here
   console.log(`Function call received:`, fn);
   const argumentsObject = JSON.parse(fn.arguments);
@@ -63,7 +64,7 @@ function handleFnCall(fn) {
   return "";
 }
 
-function getCurrentWeather(city) {
+function getCurrentWeather(city: string) {
   console.log("Getting current weather for:", city);
 
   return "Current weather in " + city + ": Sunny with a high of 25°C.";
