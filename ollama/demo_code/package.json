@@ -7,6 +7,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"describe-image": "node src/image_description_test.js",
+		"chat-tools": "node src/image_description_tools.js",
 		"test-chat": "node src/chat_test.js"
 	},
 	"author": "",

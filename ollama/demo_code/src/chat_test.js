@@ -9,7 +9,7 @@ const openai = new OpenAI({
 });
 
 const completion = await openai.chat.completions.create({
-	model: process.env.LLAVA_MODEL,
+	model: process.env.MODEL,
 	messages: [{ role: "user", content: "Why is the sky blue?" }],
 });
 
