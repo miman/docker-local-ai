@@ -50,13 +50,3 @@
 | cleanup.bat         | Removes only the containers from Docker                                                      |
 | ollama.bat          | A bat file making it easier to run commands in the shell (if placed in a folder in the path) |
 | test-docker-gpu.bat | Used to test if Docker can access the GPU                                                    |
-
-## CrewAI Code folder
-
-This contains the actual code files that will be copied to the Docker volume that is used to run the CrewAI code
-
-They are copied to the Docker volume that is used to run the CrewAI code by the installation script
-
-This folder can be found here (if using explorer or Powrshell):
-
-`\\wsl$\docker-desktop-data\data\docker\volumes\local-ai-folder\_data`
