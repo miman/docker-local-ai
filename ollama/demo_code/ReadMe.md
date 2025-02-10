@@ -20,20 +20,38 @@ npm install
 
 ### Chat request
 
-The code is in the **_src/chat_test.js_** file
+This will run a question to the LLM and return the answer.
+
+The code is in the **_src/chat_test.ts_** file
 
 It can be tested by running this command
 
 ```
-npm run src/chat_test.js
+npm run test_chat
+```
+
+### Chat request with tools
+
+This will run 2 different questions to the LLM, which will return with an answer on which tool to use, this tool will then be run & the response for the question will be returned.
+
+The code is in the **_src/chat_with_tools.ts_** file
+
+It can be tested by running this command
+
+```
+npm run chat_tools
 ```
 
 ### Describing the content of an Image
 
-The code is in the **_src/image_description_test.js_** file
+This will ask the LLM to describe the content of a JPEG image using a LLava model.
+
+It will then write the response from the LLM model.
+
+The code is in the **_src/image_description_test.ts_** file
 
 It can be tested by running this command (it will use the image in the resources folder)
 
 ```
-npm run src/image_description_test.js
+npm run describe_image
 ```
