@@ -1,6 +1,6 @@
 # CrewAi demo project
 
-Welcome to the CrewAi demo project, powered by [crewAI](https://crewai.com). 
+Welcome to the CrewAi demo project, powered by [crewAI](https://crewai.com).
 
 This template project has a Python [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) to enable you to test writing CrewAi agents in an isolated Docker environment without you having to install python or anything on your computer.
 
@@ -13,15 +13,14 @@ You can run the demo project without this but must then have Python... installed
 Start by installing all python dependecies by running:
 
 ```
-./install_dependencies.sh
+pip install -r requirements.txt
 ```
 
-You only need to do this once.
-
+This is done automatically when the devcontainer is started, but if this needs to be done if you run it outside the devcontainer (You only need to do this once).
 
 # Demo project - vehicle_crew
 
-There is a demo project in the ***vehicle_crew*** folder that you can test out before doing your own projects
+There is a demo project in the **_vehicle_crew_** folder that you can test out before doing your own projects
 
 This project demonstrates how a CrewAi project is setup including the use of using created tools.
 
@@ -29,7 +28,7 @@ The tools are very simple & hardcoded and are only there do demo how you use the
 
 ## Run the Crew
 
-To test the pre-created crewai demo project in folder ***vehicle_crew***, run the following commands:
+To test the pre-created crewai demo project in folder **_vehicle_crew_**, run the following commands:
 
 ```
 cd vehicle_crew
@@ -39,13 +38,15 @@ crewai run
 The crew should now use the 2 tools and give an answer where the vehicle is & the driver time.
 
 ## Pre-reqs
-You musty have Ollama started on your machine in a docker container, if you have it installed locally please change the URL in the ***.env*** file
 
-## 
+You musty have Ollama started on your machine in a docker container, if you have it installed locally please change the URL in the **_.env_** file
+
+##
 
 # Create a new Project
 
 If you want to create a new CrewAi project, run the following command:
+
 ```
 crewai create crew <project_name>
 ```
@@ -54,4 +55,3 @@ crewai create crew <project_name>
 
 A good start link is the CrewAI Installation page, here you can see how to start a new project...
 https://docs.crewai.com/installation
-

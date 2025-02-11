@@ -46,4 +46,4 @@ class DriverTimeTool(BaseTool):
 
     def _run(self, vehicle: str):
         print(f"Drv Received input: vehicle={vehicle}")
-        return json.dumps({"driver": "Luke Skywalker", "driving": 4.5, "resting": 1.2, "working": 2.1})
+        return json.dumps({"driver": "John Smith", "driving": 4.5, "resting": 1.2, "working": 2.1})
