@@ -11,7 +11,7 @@ fi
 # Prompt for Ollama UI installation
 read -p "Do you want to install the Ollama UI (y/N)? " answer
 echo "Deploying Docker container..."
-if [[ "${answer,,}" == "y" ]]; then
+if [[ "$answer" =~ [Yy]$ ]]; then
   docker-compose down
   docker-compose pull
   docker-compose up -d --force-recreate --build
@@ -25,20 +25,20 @@ echo "Ollama has been installed and is accessible on http://localhost:4512"
 echo "Find and download models here: https://ollama.com/library"
 
 read -p "Do you want to install an ollama alias in your rc file so it maps to your docker ollama instance (y/N)? " answer_alias
-if [[ "${answer_alias,,}" == "y" ]]; then
+if [[ "$answer_alias" =~ [Yy]$ ]]; then
   echo "Added ollama alias..."
   ./add-ollama-alias.sh
 fi
 
 # Prompt for pulling the models
 read -p "Do you want to install granite3.1-dense:2b model into Ollama (y/N)? " answer_model
-if [[ "${answer_model,,}" == "y" ]]; then
+if [[ "$answer_model" =~ [Yy]$ ]]; then
   echo "Installing granite3.1-dense:2b as a model in Ollama..."
   docker exec -it ollama ollama pull granite3.1-dense:2b
 fi
 
 read -p "Do you want to be able to use image as input and install llava-phi3 model into Ollama (y/N)? " answer_model
-if [[ "${answer_model,,}" == "y" ]]; then
+if [[ "$answer_model" =~ [Yy]$ ]]; then
   echo "Installing llava-phi3 as a model in Ollama..."
   docker exec -it ollama ollama pull llava-phi3
 fi
