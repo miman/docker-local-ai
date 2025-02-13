@@ -25,6 +25,8 @@ prompt_install() {
 }
 
 prompt_install "Ollama" "ollama" "./install.sh"
+prompt_install "CrewAI" "crewai" "./install.sh"
+prompt_install "Swarm" "swarm" "./install.sh"
 prompt_install "AnythingLLM" "AnythingLLM" "./install.sh"
 prompt_install "Autogen studio" "autogen-studio" "./install.sh"
 prompt_install "Flowise" "flowise" "./install.sh"
