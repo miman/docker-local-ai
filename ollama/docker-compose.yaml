@@ -12,13 +12,6 @@ services:
       restart: always
       volumes:
          - ollama:/root/.ollama
-      deploy:
-         resources:
-            reservations:
-               devices:
-                  - driver: nvidia
-                    count: all
-                    capabilities: [gpu]
 
    ollama-webui:
       image: ghcr.io/open-webui/open-webui:main

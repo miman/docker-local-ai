@@ -1,0 +1,13 @@
+# This file only cantains the extra part needed if the computer has an nvidia card
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   ollama-container:
+      deploy:
+         resources:
+            reservations:
+               devices:
+                  - driver: nvidia
+                    count: all
+                    capabilities: [gpu]

@@ -8,17 +8,28 @@ IF ERRORLEVEL 1 (
     echo The network local-ai-network already exists.
 )
 
+set /p nvidia_resent=Do you have an Nvidia GPU you want to use with Ollama (y/N)? 
+if /i "%nvidia_resent%" EQU "Y" (
+  echo Using Nvidia card in Ollama
+  set COMPOSE_PART=-f docker-compose.yaml -f docker-compose-nvidia.yaml
+) else (
+  set COMPOSE_PART=
+
+)
+
+echo COMPOSE_PART = %COMPOSE_PART% 
+
 REM Start in detached mode, ensuring the latest image is used & restarting container
 set /p answer=Do you want to install the Ollama UI (y/N)? 
 echo Deploying Docker container...
 if /i "%answer%" EQU "Y" (
 docker-compose down
 docker-compose pull
-docker-compose up -d --force-recreate --build
+docker-compose %COMPOSE_PART% up -d --force-recreate --build
 ) else (
   docker-compose down
   docker-compose pull ollama-container
-  docker-compose up -d --force-recreate --build ollama-container
+  docker-compose %COMPOSE_PART% up -d --force-recreate --build ollama-container
 )
 
 echo Ollama has been installed and is accessible on http://localhost:4512
