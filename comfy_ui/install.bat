@@ -38,5 +38,16 @@ echo ComfyUI has been installed and is accessible on http://localhost:4511
 
 CD ..
 
+REM Prompt the user if they want to download models
+set /p downloadModels=Do you want to download models for ComfyUI ? (Y/N): 
+
+IF /i "%downloadModels%" EQU "Y" (
+    echo Models will be downloaded...
+    REM Add your command here to download models
+    call download-models.bat
+) ELSE (
+    echo No models will be downloaded.
+)
+
 echo Find the model ranking here:  https://imgsys.org
 echo Find & download them here:  https://civitai.com/models
