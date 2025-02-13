@@ -30,9 +30,15 @@ if [[ "${answer_alias,,}" == "y" ]]; then
   ./add-ollama-alias.sh
 fi
 
-# Prompt for pulling the qwen2.5:3b model
-read -p "Do you want to install qwen2.5:3b model into Ollama (y/N)? " answer_model
+# Prompt for pulling the models
+read -p "Do you want to install granite3.1-dense:2b model into Ollama (y/N)? " answer_model
 if [[ "${answer_model,,}" == "y" ]]; then
-  echo "Installing qwen2.5:3b as a model in Ollama..."
-  docker exec -it ollama ollama pull qwen2.5:3b
+  echo "Installing granite3.1-dense:2b as a model in Ollama..."
+  docker exec -it ollama ollama pull granite3.1-dense:2b
+fi
+
+read -p "Do you want to be able to use image as input and install llava-phi3 model into Ollama (y/N)? " answer_model
+if [[ "${answer_model,,}" == "y" ]]; then
+  echo "Installing llava-phi3 as a model in Ollama..."
+  docker exec -it ollama ollama pull llava-phi3
 fi
