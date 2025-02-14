@@ -1,11 +1,8 @@
 echo off
 
-set CURRENT_PATH=%CD%
+call scripts/set-DOCKER_FOLDER.bat
+
+set LOCAL_FOLDER=%DOCKER_FOLDER%\swarm-ai-folder\_data
+
 REM Open VS Code in the code folder, obs run powershell not cmd otherwise the folder will default to Windows in VS code
-if exist "\\wsl$\docker-desktop\mnt\docker-desktop-disk" (
-   code "\\wsl$\docker-desktop\mnt\docker-desktop-disk\data\docker\volumes\swarm-ai-folder\_data"
-) else (
-   if exist "\\wsl.localhost\docker-desktop-data\data\docker\volumes" (
-      code "\\wsl.localhost\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data"
-   )
-)
+code "%LOCAL_FOLDER%"

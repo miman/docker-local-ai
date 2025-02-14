@@ -1,12 +1,8 @@
 echo off
 
-if exist "\\wsl$\docker-desktop\mnt\docker-desktop-disk" (
-   set LOCAL_FOLDER=\\wsl$\docker-desktop\mnt\docker-desktop-disk\data\docker\volumes\local-comfyui-folder\_data
-) else (
-   if exist "\\wsl.localhost\docker-desktop-data\data\docker\volumes" (
-      set LOCAL_FOLDER=\\wsl.localhost\docker-desktop-data\data\docker\volumes\local-comfyui-folder\_data"
-   )
-)
+call scripts/set-DOCKER_FOLDER.bat
+
+set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
 
 set /p answer=Do you want to get the Flux1 schnell model (y/N)? 
 if /i "%answer%" EQU "Y" (

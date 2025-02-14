@@ -17,9 +17,13 @@ if exist "ComfyUI" (
   git clone https://github.com/comfyanonymous/ComfyUI.git
 )
 
+call scripts/set-DOCKER_FOLDER.bat
+
+set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
+
 REM Copy the files to the ComfyUI Docker volume
 echo Copying the ComfyUI files to the Docker volume...
-xcopy ComfyUI \\wsl$\docker-desktop-data\data\docker\volumes\local-comfyui-folder\_data /E /H /I /Y
+xcopy ComfyUI %LOCAL_FOLDER% /E /H /I /Y
 
 REM Copy the Dockerfiles to the ComfyUI folder
 COPY Dockerfile .\ComfyUI\

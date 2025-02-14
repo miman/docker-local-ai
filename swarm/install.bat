@@ -3,13 +3,17 @@ echo off
 REM Create a volume for the Used by Swarm Docker container
 docker volume create swarm-ai-folder
 
+call scripts/set-DOCKER_FOLDER.bat
+
+set LOCAL_FOLDER=%DOCKER_FOLDER%\swarm-ai-folder\_data
+
 REM Copy the Python code to the Swarm Docker volume
 echo Copying the Swarm Python code to the Docker volume...
-copy TestSwarmPrj\demo_code\*.* \\wsl$\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data
-move \\wsl$\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data\.env.template \\wsl$\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data\.env
+copy TestSwarmPrj\demo_code\*.* %LOCAL_FOLDER%
+move %LOCAL_FOLDER%\.env.template %LOCAL_FOLDER%\.env
 
-mkdir \\wsl$\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data\output
-copy TestSwarmPrj\demo_code\output\*.* \\wsl$\docker-desktop-data\data\docker\volumes\swarm-ai-folder\_data\output
+mkdir %LOCAL_FOLDER%\output
+copy TestSwarmPrj\demo_code\output\*.* %LOCAL_FOLDER%\output
 
 REM Deploy the Swarm Docker container
 echo Creating and deploying Swarm Docker container...

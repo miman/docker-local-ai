@@ -1,4 +1,8 @@
 echo off
 
+call scripts/set-DOCKER_FOLDER.bat
+
+set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
+
 REM Open the code folder in Windows Explorer
-explorer "\\wsl$\docker-desktop\mnt\docker-desktop-disk\data\docker\volumes\local-comfyui-folder\_data"
+explorer %LOCAL_FOLDER%
