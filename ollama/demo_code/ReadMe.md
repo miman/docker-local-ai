@@ -55,3 +55,8 @@ It can be tested by running this command (it will use the image in the resources
 ```
 npm run describe_image
 ```
+
+## Webcast:
+
+A short video related to this prj can be found here:
+https://youtu.be/CaGKJ35BGUQ

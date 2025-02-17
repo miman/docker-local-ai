@@ -50,3 +50,6 @@ The config for this web app will be placed on a separate Docker volume called **
 There is a demo project with some example code in Javascript that accesses the Ollama instance
 
 More info can be found [here](demo_code/ReadMe.md)
+
+A short video related to this tool can be found here:
+https://youtu.be/GF2nXT4LcSU
