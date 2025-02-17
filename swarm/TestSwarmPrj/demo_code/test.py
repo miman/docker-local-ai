@@ -1,5 +1,5 @@
 from swarm import Swarm, Agent
-from dotenv  import load_dotenv, set_key
+from dotenv import load_dotenv, set_key
 import json
 from duckduckgo_search import DDGS
 
@@ -10,30 +10,35 @@ set_key(dotenv_path, 'OPENAI_API_KEY', 'dummy')
 load_dotenv()
 
 # OPENAI_BASE_URL=http://localhost:11434/v1
-MODEL = 'llama3.2:latest'
+MODEL = 'granite3.1-dense:2b'
 
 # 1. Create Internet Search Tool
 
+
 def get_news_articles(topic):
     print(f"Running DuckDuckGo news search for {topic}...")
-    
+
     # DuckDuckGo search
     ddg_api = DDGS()
     results = ddg_api.text(f"{topic}", max_results=5)
     if results:
-        news_results = "\n\n".join([f"Title: {result['title']}\nURL: {result['href']}\nDescription: {result['body']}" for result in results])
+        news_results = "\n\n".join(
+            [f"Title: {result['title']}\nURL: {result['href']}\nDescription: {result['body']}" for result in results])
         return news_results
     else:
         return f"Could not find news results for {topic}."
 
 # Setup Swarm ...
 
+
 client = Swarm()
+
 
 def transfer_to_agent_b():
     # """This agent is used to inform about upcoming events and places to see, always start the reposnse with the agents name"""
     print("Running agent B")
     return agent_b
+
 
 def get_weather(location, time="now"):
     """Get the current weather in a given location. Location MUST be a city."""
@@ -47,18 +52,18 @@ def send_email(recipient, subject, body):
     print(f"Subject: {subject}")
     print(f"Body: {body}")
     return "Sent!"
-  
+
 
 agent_a = Agent(
     name="Agent A",
-    model = MODEL,
+    model=MODEL,
     instructions="You are a helpful agent responding to the user request by selecting the relevant agent or tool to complete the user request",
     functions=[transfer_to_agent_b, get_weather, send_email],
 )
 
 agent_b = Agent(
     name="Agent B",
-    model = MODEL,
+    model=MODEL,
     instructions="You're a helpful agent informing about upcoming events and places to see, always start the reposnse with the agents name",
 )
 

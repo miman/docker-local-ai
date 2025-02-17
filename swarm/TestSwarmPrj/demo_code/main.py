@@ -1,13 +1,11 @@
-from duckduckgo_search import DDGS
-from init_env import initEnv
-from parse_web_page import getWebpageText
 from swarm import Swarm, Agent
 from datetime import datetime
 from web_search import webSearch
+from dotenv import load_dotenv
 
-initEnv()
+load_dotenv()
 
-MODEL = 'llama3.2:latest'
+MODEL = 'granite3.1-dense:2b'
 
 current_date = datetime.now().strftime("%Y-%m")
 
@@ -33,25 +31,28 @@ editor_agent = Agent(
 
 # 3. Create workflow
 
+
 def run_news_workflow(topic):
     print("Running web search Agent workflow...\n")
-    
+
     # Step 1: Fetch news
     news_response = client.run(
         agent=news_agent,
-        messages=[{"role": "user", "content": f"Get me the news about {topic} on {current_date}"}],
+        messages=[
+            {"role": "user", "content": f"Get me the news about {topic} on {current_date}"}],
     )
-    
+
     raw_news = news_response.messages[-1]["content"]
-    
+
     # Step 2: Pass news to editor for final review
     print("Running editor Agent workflow... \n\n")
     edited_news_response = client.run(
         agent=editor_agent,
-        messages=[{"role": "user", "content": raw_news }],
+        messages=[{"role": "user", "content": raw_news}],
     )
-    
+
     return edited_news_response.messages[-1]["content"]
+
 
 # Example of running the news workflow for a given topic
 print(run_news_workflow("AI"))
