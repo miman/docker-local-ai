@@ -25,11 +25,14 @@ prompt_install() {
 }
 
 prompt_install "Ollama" "ollama" "./install.sh"
-prompt_install "CrewAI" "crewai" "./install.sh"
-prompt_install "Swarm" "swarm" "./install.sh"
 prompt_install "AnythingLLM" "AnythingLLM" "./install.sh"
 prompt_install "Autogen studio" "autogen-studio" "./install.sh"
 prompt_install "Flowise" "flowise" "./install.sh"
 prompt_install "n8n" "n8n" "./install.sh"
 prompt_install "Bolt.diy" "bolt.diy" "./install.sh"
 prompt_install "comfy-ui" "comfy_ui" "./install.sh"
+
+# The following are better to run using devcontainers
+# prompt_install "CrewAI" "crewai" "./install.sh"
+# prompt_install "Swarm" "swarm" "./install.sh"
+
