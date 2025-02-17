@@ -3,7 +3,7 @@ echo off
 REM Create a volume for the Used by CrewAI Docker container
 docker volume create local-ai-folder
 
-call scripts/set-DOCKER_FOLDER.bat
+call ../scripts/set-DOCKER_FOLDER.bat
 
 set LOCAL_FOLDER=%DOCKER_FOLDER%\local-ai-folder\_data
 

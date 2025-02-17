@@ -1,6 +1,6 @@
 echo off
 
-call scripts/set-DOCKER_FOLDER.bat
+call ../scripts/set-DOCKER_FOLDER.bat
 
 set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
 

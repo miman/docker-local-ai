@@ -17,7 +17,7 @@ if exist "ComfyUI" (
   git clone https://github.com/comfyanonymous/ComfyUI.git
 )
 
-call scripts/set-DOCKER_FOLDER.bat
+call ../scripts/set-DOCKER_FOLDER.bat
 
 set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
 
