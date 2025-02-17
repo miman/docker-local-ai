@@ -1,0 +1,23 @@
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+services:
+   anythingllm:
+      image: mintplexlabs/anythingllm
+      container_name: anythingllm
+      networks:
+         - local-ai-network
+      ports:
+         - "4513:3001"
+      # restart: always
+      volumes:
+         - anythingllm:/app/server
+
+# We create a specific volume for the Docker container to store the files related to this container
+volumes:
+   anythingllm:
+
+# We create a specific network for these Docker containers to communicate over called local-ai-network
+networks:
+   local-ai-network:
+      external: false

@@ -1,15 +1,15 @@
 echo off
 
-SET STORAGE_LOCATION="C:\Development\docker-storage\anythingllm"
+REM The docker containers needs a common network to be able to communicate with each other
+docker network ls | findstr /r /c:"local-ai-network" >nul
+IF ERRORLEVEL 1 (
+    docker network create local-ai-network
+) ELSE (
+    echo The network local-ai-network already exists.
+)
 
-if not exist "%STORAGE_LOCATION%" mkdir "%STORAGE_LOCATION%"
-if not exist "%STORAGE_LOCATION%\.env" echo DISABLE_TELEMETRY='true' >> "%STORAGE_LOCATION%\.env"
-
-echo "Removing the old AnythingLLM container..."
-docker rm -f anythingllm
-
-echo "Fetching the latest version of the AnythingLLM image..."
-docker pull mintplexlabs/anythingllm
-
-echo "Install the AnythingLLM Docker container..."
-docker run -d --gpus all --network local-ai-network -p 4513:3001 --cap-add SYS_ADMIN -v "%STORAGE_LOCATION%:/app/server/storage" -v "%STORAGE_LOCATION%\.env:/app/server/.env" -e STORAGE_DIR="/app/server/storage" --name anythingllm mintplexlabs/anythingllm
+REM Start in detached mode, ensuring the latest image is used & restarting container
+echo Deploying AnythingLLM container...
+docker-compose down
+docker-compose pull
+docker-compose up -d --force-recreate --build

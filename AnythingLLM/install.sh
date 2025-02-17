@@ -1,32 +1,15 @@
 #!/bin/bash
-# filepath: /c/code/mt/docker-local-ai/AnythingLLM/install.sh
-
-# Define the storage location.
-STORAGE_LOCATION="/mnt/c/Development/docker-storage/anythingllm"
-
-# Create the storage directory if it doesn't exist.
-if [ ! -d "$STORAGE_LOCATION" ]; then
-  mkdir -p "$STORAGE_LOCATION"
+# Ensure the docker network "local-ai-network" exists
+if ! docker network ls --filter name=local-ai-network --format '{{.Name}}' | grep -q "^local-ai-network$"; then
+  docker network create local-ai-network
+else
+  echo "The network local-ai-network already exists."
 fi
 
-# Create the .env file with DISABLE_TELEMETRY if it doesn't exist.
-if [ ! -f "$STORAGE_LOCATION/.env" ]; then
-  echo "DISABLE_TELEMETRY='true'" >> "$STORAGE_LOCATION/.env"
-fi
 
-echo "Removing the old AnythingLLM container..."
-docker rm -f anythingllm || true
+echo "Deploying AnythingLLM Docker container..."
+docker-compose down
+docker-compose pull
+docker-compose $COMPOSE_PART up -d --force-recreate --build
 
-echo "Fetching the latest version of the AnythingLLM image..."
-docker pull mintplexlabs/anythingllm
-
-echo "Installing the AnythingLLM Docker container..."
-docker run -d --gpus all \
-  --network local-ai-network \
-  -p 4513:3001 \
-  --cap-add SYS_ADMIN \
-  -v "$STORAGE_LOCATION:/app/server/storage" \
-  -v "$STORAGE_LOCATION/.env:/app/server/.env" \
-  -e STORAGE_DIR="/app/server/storage" \
-  --name anythingllm \
-  mintplexlabs/anythingllm
+echo "AnythingLLM has been installed and is accessible on http://localhost:4513"
