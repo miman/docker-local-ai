@@ -23,6 +23,11 @@ Open this TestSwarmPrj-folder in VS Code (or your preferred IDE), more info is i
 
 There is a demo project here that you can run & see how it is built, which you can use as a base to test your own use cases.
 
+### Webcast
+
+A short video related to this tool can be found here:
+https://youtu.be/tUo8KDjqxy0
+
 ## Docker container deployment
 
 The code in the code folder will automatically be copied to a Docker volume called **_local-ai-folder_**, observe that this will be replaced if you reinstall the project.
