@@ -21,6 +21,3 @@ echo "Deploying Docker container..."
 docker-compose down
 docker-compose pull
 docker-compose up -d --force-recreate --build
-
-echo "Removing dangling Docker images..."
-docker image prune -f

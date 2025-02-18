@@ -7,7 +7,7 @@ REM OBS, this file will remove all volumes as well, if you want to keep these re
 REM Uninstall the ComfyUI Docker container
 cd ..\comfy_ui\ComfyUI
 docker-compose down -v --rmi all
-cd ..\..\scripts
+cd ..\scripts
 
 REM ==============================================
 
