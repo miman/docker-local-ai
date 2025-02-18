@@ -42,7 +42,7 @@ These are the docker containers that can be installed
 - LLM chat Web interfaces
   - [Ollama Open WebUI](ollama/ReadMe.md) - A Web UI for Ollama or other LLM's
   - [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
-- Visual Agent tools
+- Visual Agent tools, where you draw your AI flows with no code (unless using tools)
   - [Flowise](flowise/ReadMe.md)- Visual LLM UI
   - [N8N](n8n/ReadMe.md)- n8n is a workflow automation tool.
 - Code generator
