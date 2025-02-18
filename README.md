@@ -1,8 +1,16 @@
 # docker-local-ai
 
-Project used to create Docker containers to locally run Ollama, CrewAi, Autogen-studio & Flowise.
+With this project you can install a number of different AI tools locally as Docker containers.
 
-A volume will be created where the code can be dynamically changed between each run without any need to re-deploy the docker container.
+The goal is to make it easy to install & run these different tools using the local Ollama server where you can run the LLM models locally, but the agent frameworks & most other tools can also be used with cloud LLM's if you want to.
+
+Using Docker to deploy the applications isolates your host OS from installing a lot of different things & makes it safer to test new tools.
+
+Where applicable configuration has also been added to make use of your local NVidia GPU to improve inference speed.
+
+You can either install each application by itself by using the **install**-file in each folder or use the root **install**-script to get a question for which you want to use.
+
+There is also a similar **cleanup-all** script under each folder & a central under scripts to clean all Docker containers, created Docker volumes & Docker networks.
 
 ## Overview
 
@@ -29,13 +37,21 @@ A lot of the tools depend on Ollama being installed first though (if you want to
 
 These are the docker containers that can be installed
 
-- [Ollama](ollama/ReadMe.md) - Local AI model engine & Web UI for Ollama
-- [Flowise](flowise/ReadMe.md)- Visual LLM UI
-- [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
-- [ComfyUI](comfy_ui/ReadMe.md) - Text to image AI tool
-- [N8N](n8n/ReadMe.md)- n8n is a powerful, open-source, workflow automation tool.
-- [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
-- [Bolt.diy](bolt.diy/ReadMe.md)- Bolt.diy is an open-source platform for building Web UI's.
+- Run LLM's locally on your own hardware
+  - [Ollama](ollama/ReadMe.md) - Local AI model engine to run LLM's locally
+- LLM chat Web interfaces
+  - [Ollama Open WebUI](ollama/ReadMe.md) - A Web UI for Ollama or other LLM's
+  - [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+- Visual Agent tools
+  - [Flowise](flowise/ReadMe.md)- Visual LLM UI
+  - [N8N](n8n/ReadMe.md)- n8n is a workflow automation tool.
+- Code generator
+  - [Bolt.diy](bolt.diy/ReadMe.md)- Bolt.diy is an open-source platform for building Web UI's.
+- Agent frameworks
+  - [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
+  - **CrewAI**, **SwarmAI** & **OpenAI API code**, see under dev container folder below
+- Image generation using prompts
+  - [ComfyUI](comfy_ui/ReadMe.md) - Text to image AI tool
 
 ### Dev containers
 
@@ -56,7 +72,8 @@ On the page linked [here](docs/ai-apps.md) you can find some more info for each 
 
 ## Pre-reqs
 
-Docker must have been installed first
+- **Docker** must have been installed first
+- **npm** needs to be installed for some tools to be able to build the fetched code before creating a Docker image
 
 ## Port reservations
 
