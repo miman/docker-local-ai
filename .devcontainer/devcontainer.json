@@ -1,7 +1,7 @@
 // This dev container creates a NodeJs & Typescript environment
 // It also:
-// - adds he follwong to the env: AWS CLI and Git CLI
-// - mounts the .aws folder from the host machine to the container
+// - adds he follwong to the env: Git CLI
+// - mounts folders from the host machine to the container
 // - Adds a number of VSCode extensions
 
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
@@ -14,16 +14,9 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}, // Git
-        "ghcr.io/devcontainers/features/docker-in-docker:1": { "version": "latest" } // Docker
+		"ghcr.io/devcontainers/features/docker-in-docker:1": { "version": "latest" } // Docker
 	},
 
-	// Mount .aws folder from host machine to the container
-	"mounts": [
-		"source=${localEnv:HOME}/.npmrc,target=/.npmrc,type=bind",
-	    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
-	    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind",
-		 "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" // Mount Docker socket
-	],
 	"containerEnv": {
 		"NPM_CONFIG_USERCONFIG": "/.npmrc"
 	},
@@ -50,7 +43,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	,"postCreateCommand": ".devcontainer/mount-volumes.sh",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
