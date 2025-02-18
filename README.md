@@ -6,7 +6,15 @@ A volume will be created where the code can be dynamically changed between each 
 
 ## Overview
 
-This is an overview of what will be deployed:
+### Logical view
+
+This is a logical overview of the components:
+
+![logical-overview-image](docs/images/logical-overview.svg)
+
+### Deployment overview
+
+This is a overview of what will be deployed:
 
 ![overview-image](docs/images/overview.svg)
 
@@ -21,15 +29,15 @@ A lot of the tools depend on Ollama being installed first though (if you want to
 
 These are the docker containers that can be installed
 
--  [Ollama](ollama/ReadMe.md) - Local AI model engine & Web UI for Ollama
--  [CrewAI](crewai/ReadMe.md) - AI Agent framework
--  [Flowise](flowise/ReadMe.md)- Visual LLM UI
--  [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
--  [OpenAI Swarm](swarm/ReadMe.md) - AI Agent framework by OpenAI (Beta)
--  [ComfyUI](comfy_ui/ReadMe.md) - Text to image AI tool
--  [N8N](n8n/ReadMe.md)- n8n is a powerful, open-source, workflow automation tool.
--  [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
--  [Bolt.diy](bolt.diy/ReadMe.md)- Bolt.diy is an open-source platform for building Web UI's.
+- [Ollama](ollama/ReadMe.md) - Local AI model engine & Web UI for Ollama
+- [CrewAI](crewai/ReadMe.md) - AI Agent framework
+- [Flowise](flowise/ReadMe.md)- Visual LLM UI
+- [Autogen-studio](autogen-studio/ReadMe.md) - AI Agent framework
+- [OpenAI Swarm](swarm/ReadMe.md) - AI Agent framework by OpenAI (Beta)
+- [ComfyUI](comfy_ui/ReadMe.md) - Text to image AI tool
+- [N8N](n8n/ReadMe.md)- n8n is a powerful, open-source, workflow automation tool.
+- [AnythingLLM](AnythingLLM/ReadMe.md)- AnythingLLM is an open-source platform that lets you communicate with various LLMs through a unified interface.
+- [Bolt.diy](bolt.diy/ReadMe.md)- Bolt.diy is an open-source platform for building Web UI's.
 
 ## Webcasts
 
