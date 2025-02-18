@@ -11,7 +11,7 @@ After installation you can run the Autogen-studio Web UI here: [localhost:4514](
 
 To use Ollama as LLM server for a team, please follow these steps:
 
-1. Open the **gallery** in Autogen-studio
+1. Open the **Gallery** in Autogen-studio
 2. Click the **Edit** button
 3. Search for "Mistral" & change the Mistral models/provider
 4. go to the model_client block in the JSON file
@@ -33,3 +33,8 @@ To try this out you can do the following
 5. Save the changes
 6. Run your agent by clicking the "Test Team" button
 7. Optionally use a math prompt to se that is uses the calculator tool (ex: "what is 22 times 10")
+
+## Webcast
+
+A short video related to this tool can be found here:
+https://youtu.be/OAzf7-me8RA
