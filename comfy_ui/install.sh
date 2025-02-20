@@ -17,13 +17,9 @@ else
   git clone https://github.com/comfyanonymous/ComfyUI.git
 fi
 
-# Define the target directory for the Docker volume data.
-# Change this path if your Docker volume is mounted elsewhere.
-TARGET_DIR="/mnt/wsl/docker-desktop-data/data/docker/volumes/local-comfyui-folder/_data"
-
 echo "Copying the ComfyUI files to the Docker volume..."
-# Copy all files from the ComfyUI folder into the Docker volume
-cp -r ComfyUI/* "$TARGET_DIR"
+# Create a temporary container to copy files into the volume
+docker run --rm -v local-comfyui-folder:/data -v "$(pwd)/ComfyUI:/src" alpine sh -c "cp -r /src/* /data/"
 
 echo "Copying Dockerfile and docker-compose.yaml into the ComfyUI folder..."
 cp Dockerfile ComfyUI/
