@@ -45,11 +45,13 @@ export async function askLlmWithTools(question: string): Promise<string[]> {
 function handleFnCall(fnName: string, args: string): string {
   const functionToCall: any = availableFunctions.get(fnName);
   if (functionToCall) {
+    console.log('{');
     console.log('Calling function:', fnName);
     console.log('Arguments:', args);
     const argsObj = JSON.parse(args);
     const output = functionToCall(argsObj);
     // console.log('Function output:', output);
+    console.log('}\n');
 
     return output.toString();
   } else {

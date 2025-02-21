@@ -7,7 +7,7 @@ import { askLlmWithTools, model, openai } from "./ask_llm_with_tools.js";
 async function main(): Promise<void> {
   try {
     await askAboutWeather();
-
+    console.log('\n');
     await askAboutVehicle();
 
   } catch (error) {
@@ -42,7 +42,7 @@ async function askAboutVehicle(): Promise<void> {
     model: model,
     messages: [{ role: "user", content: summaryQuestion }],
   });
-  console.log("Summary completion response: \n", completion.choices[0].message.content);
+  console.log("\nSummary completion response: \n", completion.choices[0].message.content);
 }
 
 // Run the main function
