@@ -60,6 +60,7 @@ The following Agent framework tools are best run using the supplied dev containe
 - [Pure code](ollama/demo_code/ReadMe.md) - Local AI model engine & Web UI for Ollama
 - [CrewAI](crewai/ReadMe.md) - AI Agent framework
 - [OpenAI Swarm](swarm/ReadMe.md) - AI Agent framework by OpenAI (Beta)
+- [VsCodePluginTest](VsCodePluginTest/ReadMe.md) - Visual Studio Code test projects to try out different code generation & helper plugins
 
 ## Webcasts
 
