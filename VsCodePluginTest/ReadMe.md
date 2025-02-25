@@ -6,14 +6,14 @@ The purpose is to be able to test this inj a controlled environment without havi
 
 The installed tools are:
 
-- [Roo Code](https://github.com/RooVetGit/Roo-Code)
-  - More info on how to config this plugin: [Roo Code plugin](./roo-code-plugin.md)
-- [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev)
-  - More info on how to config this plugin: [Cline plugin](./cline-plugin.md)
-- [Continue](https://docs.continue.dev/)
-  - More info on how to config this plugin: [Continue plugin](./continue-plugin.md)
-- [Twinny](https://marketplace.visualstudio.com/items?itemName=rjmacarthy.twinny)
-  - More info on how to config this plugin: [Twinny plugin](./twinny-plugin.md)
+-  [Roo Code](https://github.com/RooVetGit/Roo-Code)
+   -  More info on how to config this plugin: [Roo Code plugin](./roo-code-plugin.md)
+-  [Cline](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev)
+   -  More info on how to config this plugin: [Cline plugin](./cline-plugin.md)
+-  [Continue](https://docs.continue.dev/)
+   -  More info on how to config this plugin: [Continue plugin](./continue-plugin.md)
+-  [Twinny](https://marketplace.visualstudio.com/items?itemName=rjmacarthy.twinny)
+   -  More info on how to config this plugin: [Twinny plugin](./twinny-plugin.md)
 
 ## Content
 
@@ -33,3 +33,7 @@ Write your code and test using the different plugins
 Open this python-prj folder in VS Code & start the dev container
 
 Write your code and test using the different plugins
+
+## Webcast
+
+To see a short webcast on what the projects in this folder do & how to use them, look here: https://youtu.be/WiyiYH1kNVs
