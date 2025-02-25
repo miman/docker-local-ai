@@ -10,6 +10,6 @@ fi
 echo "Deploying AnythingLLM Docker container..."
 docker-compose down
 docker-compose pull
-docker-compose $COMPOSE_PART up -d --force-recreate --build
+docker-compose up -d --force-recreate --build
 
 echo "AnythingLLM has been installed and is accessible on http://localhost:4513"
