@@ -31,11 +31,11 @@
     }
   }
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Use 'forwardPorts' to make a list of ports inside the container available loca3lly.
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": ""
+  ,"postCreateCommand": "npm i && npm run build"
 
   // Configure tool-specific properties.
   // "customizations": {},

@@ -4,7 +4,7 @@ export function hello(name: string): string {
 }
 
 function main() {
-	const args = process.argv[0];
+	const args = process.argv[2];
 	hello(args);
 }
 
