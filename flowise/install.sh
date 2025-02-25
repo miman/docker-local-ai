@@ -16,15 +16,13 @@ else
   git clone https://github.com/FlowiseAI/Flowise.git
 fi
 
-# Build the retrieved repository.
-# Assuming you have converted build_flowise.bat to build_flowise.sh
-if [ -x "build_flowise.sh" ]; then
-  echo "Building Flowise..."
-  ./build_flowise.sh
-else
-  echo "build_flowise.sh not found or not executable. Please create it or adjust this script."
-  exit 1
-fi
+# Build the retrieved Flowise repository
+cd Flowise
+
+echo "Building Flowise repo..."
+npx --yes pnpm install
+
+cd ..
 
 echo "Creating and deploying Flowise Docker container..."
 cd Flowise
