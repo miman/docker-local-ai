@@ -24,6 +24,7 @@ prompt_install() {
   fi
 }
 
+echo "If you are using a MAC, you probably want to install Ollama locally & not as a Docker container while Mac cannot use the GPU in docker so it will be very slow"
 prompt_install "Ollama" "ollama" "./install.sh"
 prompt_install "AnythingLLM" "AnythingLLM" "./install.sh"
 prompt_install "Autogen studio" "autogen-studio" "./install.sh"

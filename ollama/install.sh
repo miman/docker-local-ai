@@ -8,7 +8,8 @@ else
   echo "The network local-ai-network already exists."
 fi
 
-# Prompt for Ollama UI installation
+echo "If you are using a MAC, you probably want to install Ollama locally & not as a Docker container while Mac cannot use the GPU in docker so it will be very slow".
+# Prompt for Ollama installation
 read -p "Do you have an Nvidia GPU you want to use with Ollama (y/N)?  " answerNvidia
 echo "Deploying Docker container..."
 if [[ "$answerNvidia" =~ [Yy]$ ]]; then
