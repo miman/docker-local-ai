@@ -6,9 +6,9 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"describe_image": "npm run build && node dist/image_description_test.js",
-		"chat_tools": "npm run build && node dist/chat_with_tools.js",
-		"test_chat": "npm run build && node dist/chat_test.js",
+		"describe_image": "node dist/image_description_test.js",
+		"chat_tools": "node dist/chat_with_tools.js",
+		"test_chat": "node dist/chat_test.js",
 		"clean": "rimraf dist",
 		"build": "npm run clean && tsc"
 	},

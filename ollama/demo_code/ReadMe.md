@@ -10,10 +10,12 @@ API_BASE=http://host.docker.internal:11434 -> API_BASE=http://localhost:11434
 
 Also if you don't use the devcontainer you must have NodeJS installed on your machine (https://nodejs.org/en/)
 
-You must regardless run this to get all dependencies installed
+The devcontainer will install all dependencies & build the project automatically.
+
+But if you don't use the devcontainer, you must also run this:
 
 ```
-npm install
+npm i && npm run build
 ```
 
 ## Demo calls
