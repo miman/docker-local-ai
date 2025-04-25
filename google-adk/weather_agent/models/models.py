@@ -5,13 +5,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # LLM definition
-OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-print(f"OPENAI_API_KEY: {OPENAI_API_KEY}")
+OLLAMA_URL = os.environ["OLLAMA_URL"]
+print(f"OLLAMA_URL: {OLLAMA_URL}")
+LLM_MODEL = os.environ["LLM_MODEL"]
+print(f"LLM_MODEL: {LLM_MODEL}")
 
 ollama_model = LiteLlm(
-    model="openai/qwen2.5:3b",
-    # api_base="http://host.docker.internal:11434"
-    api_base="http://192.168.68.130:11434/v1"
+    model="openai/" + LLM_MODEL,
+    api_base=OLLAMA_URL
 )
 
 # Base model
