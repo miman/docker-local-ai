@@ -1,0 +1,59 @@
+// This dev container creates a NodeJs & Typescript environment
+// It also:
+// - adds he following to the env: AWS CLI and Git CLI
+// - mounts the .aws & .npmrc config from the host machine to the container
+// - Adds a number of VSCode extensions relevant for nodejs development
+
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "adk-test",
+	"runArgs": ["--name", "adk-test"],
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+		"features": {
+			"ghcr.io/devcontainers/features/node:1": {
+				"version": "lts" // Or specify a specific version like "18", "20", etc.
+			}
+		},
+		// "features": {
+	// 	"ghcr.io/devcontainers/features/git:1": {} // Git
+	// },
+
+	// Mount .aws folder from host machine to the container
+	// "mounts": [
+	// 	"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
+	// 	"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind"
+	// ],
+	// "containerEnv": {
+	// },
+
+	"customizations": {
+		"vscode": {
+			// Add extensions to the container. If an extension is also installed locally, you'll get a prompt to use the local or container version.
+			"extensions": [
+				"aaron-bond.better-comments",
+				"johnpapa.vscode-peacock",
+				"oderwat.indent-rainbow",
+				"jebbs.plantuml", // PLantUML
+				"jock.svg", // SVG Viewer
+				"yzhang.markdown-all-in-one", // Markdown support
+				"hediet.vscode-drawio" // DrawIO
+			]
+		}
+	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	 ,"postCreateCommand": "./install.sh"
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
