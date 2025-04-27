@@ -2,7 +2,7 @@ from google.adk.models.lite_llm import LiteLlm
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('../../.env')
 
 # LLM definition
 OLLAMA_URL = os.environ["OLLAMA_URL"]
