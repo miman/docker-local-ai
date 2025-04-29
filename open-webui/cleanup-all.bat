@@ -10,4 +10,4 @@ docker-compose down -v --rmi all
 REM ==============================================
 
 REM Remove the volume used by the Ollama Docker containers
-docker volume rm ollama
+docker volume rm open-webui

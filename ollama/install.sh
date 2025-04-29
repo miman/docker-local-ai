@@ -21,19 +21,12 @@ fi
 # echo "COMPOSE_PART = $COMPOSE_PART"
 
 # Prompt for Ollama UI installation
-read -p "Do you want to install the Ollama UI (y/N)? " answer
 echo "Deploying Docker container..."
-if [[ "$answer" =~ [Yy]$ ]]; then
-  docker-compose down
-  docker-compose pull
-  docker-compose $COMPOSE_PART up -d --force-recreate --build
-else
-  docker-compose down
-  docker-compose pull ollama-container
-  docker-compose $COMPOSE_PART up -d --force-recreate --build ollama-container
-fi
+docker-compose down
+docker-compose pull
+docker-compose $COMPOSE_PART up -d --force-recreate --build
 
-echo "Ollama has been installed and is accessible on http://localhost:4512"
+echo "Ollama has been installed and is accessible on http://localhost:11434"
 echo "Find and download models here: https://ollama.com/library"
 
 read -p "Do you want to install an ollama alias in your rc file so it maps to your docker ollama instance (y/N)? " answer_alias
