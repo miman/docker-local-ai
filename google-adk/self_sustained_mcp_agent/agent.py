@@ -28,6 +28,10 @@ ollama_model = LiteLlm(
 # LLM model capable of calling tools
 tool_calling_model = ollama_model
 
+# Fetch current folder path
+current_folder_path = os.path.abspath('.')
+print(f"Current folder path: {current_folder_path}")
+
 # --- Step 1: Import Tools from MCP Server ---
 
 
@@ -41,7 +45,7 @@ async def get_tools_async():
             args=["-y",    # Arguments for the command
                   "@modelcontextprotocol/server-filesystem",
                   # TODO: IMPORTANT! Change the path below to an ABSOLUTE path on your system.
-                  "/workspaces/google-adk/mcp_agent"],
+                  current_folder_path],
         )
         # For remote servers, you would use SseServerParams instead:
         # connection_params=SseServerParams(url="http://remote-server:port/path", headers={...})
@@ -80,7 +84,7 @@ async def async_main():
 
     # TODO: Change the query to be relevant to YOUR specified folder.
     # e.g., "list files in the 'documents' subfolder" or "read the file 'notes.txt'"
-    query = "list files in the /workspaces/google-adk/mcp_agent folder"
+    query = "list files in the " + current_folder_path + " folder"
     print(f"User Query: '{query}'")
     content = types.Content(role='user', parts=[types.Part(text=query)])
 
@@ -99,7 +103,10 @@ async def async_main():
     )
 
     async for event in events_async:
-        print(f"Event received: {event}")
+        # print(f"Event received: {event}")
+        if event.content.parts[0].text:
+            # Print the response from the agent
+            print(f"Agent Response: {event.content.parts[0].text}")
 
     # Crucial Cleanup: Ensure the MCP server process connection is closed.
     print("Closing MCP server connection...")
