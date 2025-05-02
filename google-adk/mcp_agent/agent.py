@@ -32,7 +32,7 @@ async def create_agent():
     tools, exit_stack = await fetch_tools()
 
     agent = Agent(
-        name="weather_time_agent",
+        name="mcp_test_agent",
         model=tool_calling_model,
         description=(
             "Agent to answer questions using tools, responds with a markdown formatted response"
