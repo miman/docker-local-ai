@@ -1,113 +1,53 @@
-# ./adk_agent_samples/mcp_agent/agent.py
-import asyncio
-from dotenv import load_dotenv
-from google.genai import types
-from google.adk.agents.llm_agent import LlmAgent
-from google.adk.runners import Runner
-from google.adk.sessions import InMemorySessionService
-from google.adk.artifacts.in_memory_artifact_service import InMemoryArtifactService  # Optional
-from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, SseServerParams, StdioServerParameters
-from google.adk.models.lite_llm import LiteLlm
+from google.adk.agents import Agent
+from weather_agent.models import tool_calling_model
+from weather_agent.tools import get_weather
+from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
 import os
 
-# Load environment variables from .env file in the parent directory
-# Place this near the top, before using env vars like API keys
-load_dotenv('../.env')
-
-# LLM definition
-OLLAMA_URL = os.environ["OLLAMA_URL"]
-print(f"OLLAMA_URL: {OLLAMA_URL}")
-LLM_MODEL = os.environ["LLM_MODEL"]
-print(f"LLM_MODEL: {LLM_MODEL}")
-
-ollama_model = LiteLlm(
-    model="openai/" + LLM_MODEL,
-    api_base=OLLAMA_URL
-)
-
-# LLM model capable of calling tools
-tool_calling_model = ollama_model
-
-# --- Step 1: Import Tools from MCP Server ---
+# Fetch current folder path
+current_folder_path = os.path.abspath('.')
+print(f"Current folder path: {current_folder_path}")
 
 
-async def get_tools_async():
-    """Gets tools from the File System MCP Server."""
-    print("Attempting to connect to MCP Filesystem server...")
+async def fetch_tools():
+    """Gets tools from MCP Server & local files."""
     tools, exit_stack = await MCPToolset.from_server(
         # Use StdioServerParameters for local process communication
         connection_params=StdioServerParameters(
             command='npx',  # Command to run the server
             args=["-y",    # Arguments for the command
                   "@modelcontextprotocol/server-filesystem",
-                  # TODO: IMPORTANT! Change the path below to an ABSOLUTE path on your system.
-                  "/workspaces/google-adk/mcp_agent"],
+                  current_folder_path],
         )
-        # For remote servers, you would use SseServerParams instead:
-        # connection_params=SseServerParams(url="http://remote-server:port/path", headers={...})
     )
-    print("MCP Toolset created successfully.")
-    # MCP requires maintaining a connection to the local MCP Server.
-    # exit_stack manages the cleanup of this connection.
+
+    # add weather service
+    tools.append(get_weather)
+
     return tools, exit_stack
 
-# --- Step 2: Agent Definition ---
 
+async def create_agent():
+    """Creates the agent with all suported tools"""
+    tools, exit_stack = await fetch_tools()
 
-async def get_agent_async():
-    """Creates an ADK Agent equipped with tools from the MCP Server."""
-    tools, exit_stack = await get_tools_async()
-    print(f"Fetched {len(tools)} tools from MCP server.")
-    root_agent = LlmAgent(
-        model=tool_calling_model,  # Adjust model name if needed based on availability
-        name='filesystem_assistant',
-        instruction='Help user interact with the local filesystem using available tools.',
-        tools=tools,  # Provide the MCP tools to the ADK agent
+    agent = Agent(
+        name="weather_time_agent",
+        model=tool_calling_model,
+        description=(
+            "Agent to answer questions using tools, responds with a markdown formatted response"
+        ),
+        instruction=(
+            "You are a helpful agent who uses tools to answ answer user questions . You use the given tools & then composes a markdown response based on that"
+        ),
+        tools=tools,
     )
-    return root_agent, exit_stack
-
-# --- Step 3: Main Execution Logic ---
+    return agent, exit_stack
 
 
-async def async_main():
-    session_service = InMemorySessionService()
-    # Artifact service might not be needed for this example
-    artifacts_service = InMemoryArtifactService()
+root_agent = create_agent()
 
-    session = session_service.create_session(
-        state={}, app_name='mcp_filesystem_app', user_id='user_fs'
-    )
-
-    # TODO: Change the query to be relevant to YOUR specified folder.
-    # e.g., "list files in the 'documents' subfolder" or "read the file 'notes.txt'"
-    query = "list files in the /workspaces/google-adk/mcp_agent folder"
-    print(f"User Query: '{query}'")
-    content = types.Content(role='user', parts=[types.Part(text=query)])
-
-    root_agent, exit_stack = await get_agent_async()
-
-    runner = Runner(
-        app_name='mcp_filesystem_app',
-        agent=root_agent,
-        artifact_service=artifacts_service,  # Optional
-        session_service=session_service,
-    )
-
-    print("Running agent...")
-    events_async = runner.run_async(
-        session_id=session.id, user_id=session.user_id, new_message=content
-    )
-
-    async for event in events_async:
-        print(f"Event received: {event}")
-
-    # Crucial Cleanup: Ensure the MCP server process connection is closed.
-    print("Closing MCP server connection...")
-    await exit_stack.aclose()
-    print("Cleanup complete.")
-
-if __name__ == '__main__':
-    try:
-        asyncio.run(async_main())
-    except Exception as e:
-        print(f"An error occurred: {e}")
+# """Review the user's prompt and the available functions listed below.
+# First, determine if calling one of these functions is the most appropriate way to respond. A function call is likely needed if the prompt asks for a specific action, requires external data lookup, or involves calculations handled by the functions. If the prompt is a general question or can be answered directly, a function call is likely NOT needed.
+# If you determine a function call IS required: Respond ONLY with a JSON object in the format {"name": "function_name", "parameters": {"argument_name": "value"}}. Ensure parameter values are concrete, not variables.
+# If you determine a function call IS NOT required: Respond directly to the user's prompt in plain text, providing the answer or information requested. Do not output any JSON."""
