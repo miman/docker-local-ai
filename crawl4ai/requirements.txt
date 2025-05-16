@@ -1,0 +1,4 @@
+asyncio
+crawl4ai
+pydantic
+requests

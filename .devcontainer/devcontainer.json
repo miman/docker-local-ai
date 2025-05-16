@@ -1,4 +1,4 @@
-// This dev container creates a NodeJs & Typescript environment
+// This dev container creates a Python + NodeJs & Typescript environment
 // It also:
 // - adds he follwong to the env: Git CLI
 // - mounts folders from the host machine to the container
@@ -9,12 +9,13 @@
 {
 	"name": "Docker-Local-AI",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}, // Git
-		"ghcr.io/devcontainers/features/docker-in-docker:1": { "version": "latest" } // Docker
+		// "ghcr.io/devcontainers/features/docker-in-docker:1": { "version": "latest" }, // Docker
+		"ghcr.io/devcontainers/features/node:1": { "version": "lts" }
 	},
 
 	"containerEnv": {
@@ -22,7 +23,7 @@
 	},
 
 	// Run as root to be able to access the local Docker daemon
-	"runArgs": ["--name", "Docker-Local-AI", "--user", "root"],
+	"runArgs": ["--name", "Docker-Local-AI"], // , "--user", "root"
 
 	"customizations": {
 		"vscode": {
@@ -43,7 +44,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	,"postCreateCommand": ".devcontainer/mount-volumes.sh",
+	// "postCreateCommand": ".devcontainer/mount-volumes.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
