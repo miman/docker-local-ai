@@ -2,15 +2,18 @@
 # https://docs.docker.com/go/compose-spec-reference/
 
 services:
-   file-test:
+   comfy-ui:
       image: comfy-ui
       container_name: comfy-ui
       networks:
          - local-ai-network
       volumes:
-         - local-comfyui-folder:/app # Mount the current directory as /app volume
+         - comfyui_models:/app/models
+         - comfyui_custom_nodes:/app/custom_nodes
+         - comfyui_input:/app/input
+         - comfyui_output:/app/output
       build:
-         context: .
+         context: ./ComfyUI
       ports:
          - "4515:8188"
       deploy:
@@ -23,8 +26,10 @@ services:
 
 # We create a specific volume for the ComfyUI Docker container to store the files realted to this container
 volumes:
-   local-comfyui-folder:
-      external: true
+   comfyui_models:
+   comfyui_custom_nodes:
+   comfyui_input:
+   comfyui_output:
 
 # We create a specific network for these Docker containers to communicate over called local-ai-network
 networks:

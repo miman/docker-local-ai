@@ -1,10 +1,4 @@
 #!/bin/bash
-# filepath: /c:/code/mt/docker-local-ai/comfy_ui/install.sh
-
-set -e
-
-# Create a volume for the ComfyUI Docker container
-docker volume create local-comfyui-folder
 
 # Check if the ComfyUI folder exists; if so, pull the latest changes, otherwise clone it
 if [ -d "ComfyUI" ]; then
@@ -17,25 +11,33 @@ else
   git clone https://github.com/comfyanonymous/ComfyUI.git
 fi
 
-# Define the target directory for the Docker volume data.
-# Change this path if your Docker volume is mounted elsewhere.
-TARGET_DIR="/mnt/wsl/docker-desktop-data/data/docker/volumes/local-comfyui-folder/_data"
+# Stop any running ComfyUI container
+echo "Stopping existing ComfyUI container if it exists..."
+docker-compose down
 
-echo "Copying the ComfyUI files to the Docker volume..."
-# Copy all files from the ComfyUI folder into the Docker volume
-cp -r ComfyUI/* "$TARGET_DIR"
-
-echo "Copying Dockerfile and docker-compose.yaml into the ComfyUI folder..."
-cp Dockerfile ComfyUI/
-cp docker-compose.yaml ComfyUI/
-
-echo "Building and deploying the ComfyUI Docker container..."
-cd ComfyUI
+# Build the Docker image with the latest code
+echo "Building ComfyUI Docker image..."
 docker-compose build
 
-echo "Starting the ComfyUI Docker container in detached mode..."
+# Start the ComfyUI container in detached mode
+echo "Starting ComfyUI Docker container..."
 docker-compose up -d
 
-echo "ComfyUI has been installed and is accessible on http://localhost:4511"
-echo "Find the model ranking here: https://imgsys.org"
-echo "Find & download models here: https://civitai.com/models"
+echo "ComfyUI has been installed and is accessible on http://localhost:4515"
+
+# Prompt the user if they want to download models
+read -p "Do you want to download models for ComfyUI ? (y/N): " answer
+if [[ "$answer" =~ ^[Yy]$ ]]; then
+    echo "Models will be downloaded..."
+    # Check if download-models.sh exists and is executable
+    if [ -x "download-models.sh" ]; then
+        ./download-models.sh
+    else
+        echo "Warning: download-models.sh not found or not executable."
+    fi
+else
+    echo "No models will be downloaded."
+fi
+
+echo "Find the model ranking here:  https://imgsys.org"
+echo "Find & download them here:  https://civitai.com/models"

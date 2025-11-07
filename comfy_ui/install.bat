@@ -3,10 +3,7 @@ echo off
 REM Installing ComfyUI into a Docker container
 REM code origin: https://www.youtube.com/watch?v=Z914egVyXBw
 
-REM Create a volume for the Used by CrewAI Docker container
-docker volume create local-comfyui-folder
-
-REM Fetch the latest version of Flowise from GitHub
+REM Fetch the latest version of ComfyUI from GitHub
 if exist "ComfyUI" (
   echo ComfyUI folder exists -> just pulling the latest changes
   cd ComfyUI
@@ -17,30 +14,19 @@ if exist "ComfyUI" (
   git clone https://github.com/comfyanonymous/ComfyUI.git
 )
 
-call ../scripts/set-DOCKER_FOLDER.bat
+REM Stop any running ComfyUI container
+echo Stopping existing ComfyUI container if it exists...
+docker-compose down
 
-set LOCAL_FOLDER=%DOCKER_FOLDER%\local-comfyui-folder\_data
-
-REM Copy the files to the ComfyUI Docker volume
-echo Copying the ComfyUI files to the Docker volume...
-xcopy ComfyUI %LOCAL_FOLDER% /E /H /I /Y
-
-REM Copy the Dockerfiles to the ComfyUI folder
-COPY Dockerfile .\ComfyUI\
-COPY docker-compose.yaml .\ComfyUI\
-
-REM Deploy the ComfyUI Docker container
-echo Creating ComfyUI Docker container...
-CD ComfyUI
+REM Build the Docker image with the latest code
+echo Building ComfyUI Docker image...
 docker-compose build
 
-REM Start in detached mode
-echo Deploying ComfyUI Docker container...
+REM Start the ComfyUI container in detached mode
+echo Starting ComfyUI Docker container...
 docker-compose up -d
 
-echo ComfyUI has been installed and is accessible on http://localhost:4511
-
-CD ..
+echo ComfyUI has been installed and is accessible on http://localhost:4515
 
 REM Prompt the user if they want to download models
 set /p downloadModels=Do you want to download models for ComfyUI ? (Y/N): 
