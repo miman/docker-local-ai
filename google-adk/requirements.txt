@@ -2,3 +2,4 @@ litellm
 google-adk
 dotenv
 google.genai
+uv

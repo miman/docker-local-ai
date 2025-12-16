@@ -9,7 +9,11 @@ print(f"Current folder path: {current_folder_path}")
 
 async def fetch_tools():
     """Gets tools from MCP Server & local files."""
-    tools, exit_stack = await MCPToolset.from_server(
+
+    # add weather service
+    tools = [get_weather]
+
+    file_tools, file_exit_stack = await MCPToolset.from_server(
         # Use StdioServerParameters for local process communication
         connection_params=StdioServerParameters(
             command='npx',  # Command to run the server
@@ -19,7 +23,18 @@ async def fetch_tools():
         )
     )
 
-    # add weather service
-    tools.append(get_weather)
+    tools.extend(file_tools)
 
-    return tools, exit_stack
+    fetch_tools, fetch_exit_stack = await MCPToolset.from_server(
+        # Use StdioServerParameters for local process communication
+        connection_params=StdioServerParameters(
+            command='npx',  # Command to run the server
+            args=[
+                "-y",
+                "duckduckgo-mcp-server"],
+        )
+    )
+
+    tools.extend(fetch_tools)
+
+    return tools, fetch_exit_stack
