@@ -16,6 +16,9 @@ The models downloaded to your Ollama server will be placed on a separate Docker 
 
 The Ollama srv docker image is configured to use you NVidia GPU for faster inference.
 
+> [!IMPORTANT]
+> **Prerequisite for Linux users:** You must have the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) installed and configured in Docker to use your GPU.
+
 ### For Mac users
 
 While Mac doesn't support that Docker uses the GPU, running Ollama as a docker container on a Mac is very slow so I propose to install ollama-desktop for Mac.

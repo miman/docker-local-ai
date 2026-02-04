@@ -11,8 +11,8 @@ fi
 
 # Prompt for Ollama UI installation
 echo "Deploying Docker container..."
-docker-compose down
-docker-compose pull
-docker-compose up -d --force-recreate --build
+docker compose down
+docker compose pull
+docker compose up -d --force-recreate --build
 
 echo "Open-webui has been installed and is accessible on http://localhost:4512"

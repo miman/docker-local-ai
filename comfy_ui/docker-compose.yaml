@@ -1,37 +1,17 @@
-# If you need more help, visit the Docker Compose reference guide at
-# https://docs.docker.com/go/compose-spec-reference/
+version: '3.8'
 
 services:
-   comfy-ui:
-      image: comfy-ui
-      container_name: comfy-ui
-      networks:
-         - local-ai-network
-      volumes:
-         - comfyui_models:/app/models
-         - comfyui_custom_nodes:/app/custom_nodes
-         - comfyui_input:/app/input
-         - comfyui_output:/app/output
-      build:
-         context: ./ComfyUI
-      ports:
-         - "4515:8188"
-      deploy:
-         resources:
-            reservations:
-               devices:
-                  - driver: nvidia
-                    count: all
-                    capabilities: [gpu]
-
-# We create a specific volume for the ComfyUI Docker container to store the files realted to this container
-volumes:
-   comfyui_models:
-   comfyui_custom_nodes:
-   comfyui_input:
-   comfyui_output:
-
-# We create a specific network for these Docker containers to communicate over called local-ai-network
-networks:
-   local-ai-network:
-      external: true # Optional: Creates the network if it doesn't exist
+  comfy-ui:
+    # The 'build' command is a simple string, not a map.
+    build: ./ComfyUI
+    container_name: comfy-ui
+    ports:
+      - "4515:8188"
+    volumes:
+      - ~/comfyui/models:/app/models
+      - ~/comfyui/custom_nodes:/app/custom_nodes
+      - ~/comfyui/input:/app/input
+      - ~/comfyui/output:/app/output
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all

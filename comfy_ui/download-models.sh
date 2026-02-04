@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# This script assumes Docker Desktop for Windows is used, and volumes are in the default WSL path.
-# If your Docker data root is different, please change this variable.
-DOCKER_VOLUMES_PATH="/mnt/wsl/docker-desktop-data/data/docker/volumes"
-
-MODELS_FOLDER="$DOCKER_VOLUMES_PATH/comfyui_models/_data"
-CUSTOM_NODES_FOLDER="$DOCKER_VOLUMES_PATH/comfyui_custom_nodes/_data"
+# We put the models in the user's home directory
+MODELS_FOLDER="~/comfyui/models"
+CUSTOM_NODES_FOLDER="~/comfyui/custom_nodes"
 
 # Create directories if they don't exist
 mkdir -p "$MODELS_FOLDER/checkpoints"
